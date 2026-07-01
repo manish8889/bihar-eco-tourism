@@ -146,6 +146,68 @@ function loadDestinationDetail() {
     `;
   }
 
+  // 6.5. Populate Official Lodging Options if present
+  const accommContainer = document.getElementById('detail-accomm-container');
+  const accommGrid = document.getElementById('detail-accomm-grid');
+  if (accommContainer && accommGrid) {
+    if (dest.accommodations && dest.accommodations.length > 0) {
+      accommContainer.style.display = 'block';
+      accommGrid.innerHTML = '';
+      dest.accommodations.forEach(acc => {
+        const row = document.createElement('div');
+        row.className = 'glass-panel';
+        row.style.padding = '15px';
+        row.style.borderRadius = 'var(--radius-md)';
+        row.innerHTML = `
+          <strong style="color: var(--primary); font-family: var(--font-headings); display: block; margin-bottom: 5px;">${acc.location}</strong>
+          <span style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5; display: block;">${acc.rooms}</span>
+        `;
+        accommGrid.appendChild(row);
+      });
+    } else {
+      accommContainer.style.display = 'none';
+    }
+  }
+
+  // 6.6. Populate Official Helplines if present
+  const helplineContainer = document.getElementById('detail-helpline-container');
+  const helplineNotice = document.getElementById('detail-booking-notice');
+  const helplineGrid = document.getElementById('detail-helpline-grid');
+  if (helplineContainer && helplineGrid) {
+    if (dest.helplines && dest.helplines.length > 0) {
+      helplineContainer.style.display = 'block';
+      helplineContainer.id = "helplines"; // Dynamic anchor
+      
+      if (helplineNotice) {
+        helplineNotice.textContent = dest.bookingNotice || "For tour bookings, permits, or queries, please contact the local range offices directly:";
+      }
+      helplineGrid.innerHTML = '';
+      dest.helplines.forEach(help => {
+        const item = document.createElement('div');
+        item.className = 'glass-panel';
+        item.style.padding = '15px';
+        item.style.borderRadius = 'var(--radius-md)';
+        item.style.display = 'flex';
+        item.style.alignItems = 'center';
+        item.style.gap = '12px';
+        item.innerHTML = `
+          <div style="background:var(--bg-tertiary); width:35px; height:35px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <div>
+            <span style="font-size:0.8rem; color:var(--text-light); text-transform:uppercase; font-weight:600; display:block;">${help.role}</span>
+            <a href="tel:${help.contact.split(' ')[0]}" style="font-size:1.05rem; font-weight:700; color:var(--primary); text-decoration:none;">${help.contact}</a>
+          </div>
+        `;
+        helplineGrid.appendChild(item);
+      });
+    } else {
+      helplineContainer.style.display = 'none';
+    }
+  }
+
   // 7. Populate Local Eco Stays (Filtered by matching location coordinates/terms)
   const staysGrid = document.getElementById('detail-stays-grid');
   if (staysGrid) {

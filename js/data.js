@@ -9,18 +9,30 @@ const EcoData = {
       image: "https://images.unsplash.com/photo-1615959189197-48400ad77f5c?auto=format&fit=crop&q=80&w=800", // Forest/Tiger-like setting
       rating: 4.8,
       facts: {
-        area: "898 sq km",
+        area: "900+ sq km",
         bestSeason: "November to March",
-        keyWildlife: "Bengal Tiger, Leopard, Wild Dog",
+        keyWildlife: "Bengal Tiger, Leopard, Gaur, Sloth Bear",
         entryFee: "₹150 (Indians) / ₹1000 (Foreigners)"
       },
-      adventureTags: ["Jungle Safari", "Rafting", "Bird Watching", "Eco-Trekking"],
+      adventureTags: ["Jungle Safari", "Kauleshwar Jhula", "Gandak Rafting", "Someshwar Peak Trek", "Bheriyari Watchtower"],
       coordinates: { x: 120, y: 80 }, // for custom SVG map relative position
       howToReach: {
-        air: "Gorakhpur Airport (125 km) in UP or Jay Prakash Narayan Airport in Patna (275 km).",
-        rail: "Bagaha Station (BUG) is 30 km away; Valmiki Nagar Road station (VNK) connects to Patna and Gorakhpur.",
-        road: "Well-connected by NH-727. State buses and taxi rentals are available from Bettiah (80 km) and Gorakhpur (125 km)."
-      }
+        air: "Patna Airport (305 km), Gorakhpur Airport (125 km), or Kushinagar Airport (100 km).",
+        rail: "Nearest stations are Bagaha (45 km for Valmikinagar), Harinagar (20 km for Gobardhana), and Narkatiaganj (25 km for Manguraha).",
+        road: "Patna-Muzaffarpur-Bettiah (210 km) / Bettiah-Valmikinagar (105 km) / Bettiah-Gobardhana (70 km) / Bettiah-Manguraha (65 km) / Gorakhpur-Valmikinagar (125 km)."
+      },
+      officialWebsite: "www.valmikitigerreserve.com",
+      helplines: [
+        { role: "Bettiah HQ Office", contact: "6207283609" },
+        { role: "Valmikinagar Range Officer", contact: "9162219095" },
+        { role: "Manguraha Range Officer", contact: "6205671631 / 9973909350" },
+        { role: "Gobardhana Range Officer", contact: "9733093351" }
+      ],
+      accommodations: [
+        { location: "Valmikinagar", rooms: "04 Suites, 06 Bamboo Huts, 04 AC Deluxe Rooms, 12 Valmiki Vihar Hotel Rooms, 40 Dormitory Beds" },
+        { location: "Manguraha", rooms: "02 Suites, 02 AC Stay Houses, 04 AC Tourist Huts, 06 Tent Huts, 02 Kotraha Eco-Huts" },
+        { location: "Gobardhana", rooms: "04 Tharu AC Suites, 01 Tree Hut, 02 Tourist Huts" }
+      ]
     },
     {
       id: "rajgir",
@@ -124,13 +136,23 @@ const EcoData = {
         keyWildlife: "Leopard, Nilgai, Chinkara, Four-horned Antelope",
         entryFee: "₹50 per person"
       },
-      adventureTags: ["Gorge Trekking", "Ancient Cave Tours", "Camping", "Waterfall Treks"],
+      adventureTags: ["Gorge Trekking", "Telhar Kund Fall", "Karkatgarh Eco Park", "Mundeshwari Park", "Karamchat Nauka Vihar"],
       coordinates: { x: 100, y: 410 },
       howToReach: {
-        air: "Lal Bahadur Shastri International Airport in Varanasi (100 km) or Patna Airport (200 km).",
-        rail: "Bhabua Road Station (BBU) is 40 km away, connected to the Howrah-Gaya-Mughalsarai grand chord.",
-        road: "Accessible from Bhabua city (30 km) and Varanasi (95 km) via motorable ghat roads. Cabs are recommended."
-      }
+        air: "Lal Bahadur Shastri Airport, Varanasi (117 km) or Jay Prakash Narayan Airport, Patna (203 km).",
+        rail: "Bhabua Road Station (BBU) in Mohania is 16 km away from Bhabua city headquarters.",
+        road: "Direct road access from Varanasi (95 km) & Bhabua. Distances from Bhabua: Maa Mundeshwari Eco Park (12 km), Telhar Kund (31 km), Karkatgarh Waterfall (42 km), Karamchat Nauka Vihar (34 km), Jagdahwa Dam (20 km), Adhaura (77 km)."
+      },
+      bookingNotice: "Currently, online booking is not available for the Kaimur Forest Division. For tour bookings, lodging permissions, and inquiries, please contact the Kaimur Forest Division officers directly:",
+      helplines: [
+        { role: "Telhar Kund / Karamchat (Manoj Kumar, Range Officer)", contact: "8544055700" },
+        { role: "Telhar Kund Waterfall (Vivek Kumar, Forester)", contact: "8789577417" },
+        { role: "Maa Mundeshwari Eco Park (Vineet Kumar, Forester)", contact: "7870107210" },
+        { role: "Karamchat Nauka Vihar (Dipu Kumar, Forester)", contact: "9110154035" },
+        { role: "Karkatgarh Eco Park & Fall (Arvind K. Dubey, Range Officer)", contact: "9546725276" },
+        { role: "Jagdahwa Dam Circuit (Gaurav Kumar, Forester)", contact: "8252839299" },
+        { role: "Banjari / Khogh Adhaura (Sahil Anand, Range Officer)", contact: "8770863468" }
+      ]
     },
     {
       id: "pant",

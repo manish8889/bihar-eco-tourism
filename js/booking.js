@@ -29,6 +29,27 @@ class BookingWizard {
           window.open('https://rajgirsafari.bihar.gov.in/', '_blank');
           return;
         }
+        if (destId === 'valmiki') {
+          e.preventDefault();
+          window.open('https://www.valmikitigerreserve.com', '_blank');
+          return;
+        }
+        if (destId === 'kaimur') {
+          e.preventDefault();
+          const helplinesEl = document.getElementById('helplines');
+          if (helplinesEl) {
+            const headerOffset = 95;
+            const elementPosition = helplinesEl.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          } else {
+            window.location.href = "destination-detail.html?id=kaimur#helplines";
+          }
+          return;
+        }
         e.preventDefault();
         this.openWizard(destId);
       }
