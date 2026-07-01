@@ -73,7 +73,22 @@ class TourismMap {
     }
 
     const factsHtml = Object.entries(dest.facts).map(([key, val]) => {
-      // camelCase to readable title case
+      if (key.toLowerCase() === 'coordinates') {
+        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(val)}`;
+        return `
+          <div style="margin-bottom:8px; border-bottom:1px solid var(--glass-border); padding-bottom:5px;">
+            <span style="font-size:0.75rem; color:var(--text-light); text-transform:uppercase;">GPS Coordinates</span>
+            <p style="font-weight:600; font-size:0.95rem; margin-top:2px; display:flex; justify-content:space-between; align-items:center;">
+              <span>${val}</span>
+              <a href="${mapsUrl}" target="_blank" style="font-size:0.7rem; color:var(--primary); font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:3px;">
+                <svg viewBox="0 0 24 24" width="10" height="10" stroke="currentColor" stroke-width="2.5" fill="none" style="flex-shrink:0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Map
+              </a>
+            </p>
+          </div>
+        `;
+      }
+      
       const title = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
       return `
         <div style="margin-bottom:8px; border-bottom:1px solid var(--glass-border); padding-bottom:5px;">

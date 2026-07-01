@@ -61,6 +61,27 @@ function loadDestinationDetail() {
   if (factsContainer) {
     factsContainer.innerHTML = '';
     Object.entries(dest.facts).forEach(([key, val]) => {
+      if (key.toLowerCase() === 'coordinates') {
+        const factCard = document.createElement('div');
+        factCard.className = 'glass-panel';
+        factCard.style.padding = '15px';
+        factCard.style.borderRadius = 'var(--radius-md)';
+        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(val)}`;
+        factCard.innerHTML = `
+          <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-light); font-weight:600; display:block; margin-bottom:5px;">GPS Coordinates</span>
+          <strong style="font-size: 1.1rem; color: var(--primary); font-family: var(--font-headings); display:block; margin-bottom:8px;">${val}</strong>
+          <a href="${mapsUrl}" target="_blank" class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 6px; text-decoration: none;">
+            <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" style="flex-shrink:0;">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            View on Map
+          </a>
+        `;
+        factsContainer.appendChild(factCard);
+        return;
+      }
+      
       const readableKey = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
       const factCard = document.createElement('div');
       factCard.className = 'glass-panel';
