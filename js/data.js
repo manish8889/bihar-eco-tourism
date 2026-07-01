@@ -35,6 +35,140 @@ const EcoData = {
       ]
     },
     {
+      id: "someshwar_peak",
+      name: "Someshwar Peak Trek",
+      location: "West Champaran District (VTR)",
+      shortDesc: "The highest peak of Bihar situated at a height of 2884 feet, offering a scenic 14 km trek to an ancient border temple.",
+      longDesc: "Someshwar Peak is the highest point in Bihar, offering panoramic views of the snow-clad Himalayas. The 14 km trek from the base camp winds through pristine valleys and dense Sal forests. At the summit sits a temple dedicated to Lord Someshwar and Goddess Kali right on the international Indo-Nepal border.",
+      image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800",
+      rating: 4.9,
+      facts: {
+        altitude: "2,884 feet",
+        trekDistance: "14 km (One Way)",
+        bestSeason: "November to February",
+        entryFee: "₹50 (Registration required)"
+      },
+      adventureTags: ["Mountain Trekking", "Border View", "Pilgrimage Hikes", "Forest Trails"],
+      coordinates: { x: 140, y: 70 },
+      howToReach: {
+        air: "Gorakhpur Airport (135 km) or Patna Airport (315 km).",
+        rail: "Narkatiaganj Railway Station is 35 km away from the trek base.",
+        road: "Buses and cabs ply from Bettiah (95 km) to the base camp at Raghia/Gobardhana."
+      },
+      officialWebsite: "www.valmikitigerreserve.com",
+      helplines: [
+        { role: "Gobardhana Range Helpline", contact: "9733093351" }
+      ]
+    },
+    {
+      id: "bhikhna_thori",
+      name: "Bhikhna Thori Spot",
+      location: "West Champaran District (VTR)",
+      shortDesc: "Historically the resting place for Buddhist monks, now a famous mountain picnic spot along the clear Pandai River.",
+      longDesc: "Bhikhna Thori is nestled in the foothills of the Himalayas, bordering Nepal. It was historically a resting spot (thaur) for travelling Buddhist monks. King George V rested here during his historical tour. Today, it is a scenic picnic spot where visitors can see round, colorful pebbles on the Pandai riverbed.",
+      image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
+      rating: 4.6,
+      facts: {
+        majorAttraction: "Pandai River Bed & Pebbles",
+        history: "Buddhist Monk Retreat",
+        bestSeason: "October to March",
+        entryFee: "Free"
+      },
+      adventureTags: ["Riverside Walks", "Picnics", "Nature Photography", "Birdwatching"],
+      coordinates: { x: 155, y: 75 },
+      howToReach: {
+        air: "Patna Airport (320 km) or Gorakhpur Airport (150 km).",
+        rail: "Harinagar Station is 20 km away, or Narkatiaganj Station is 28 km away.",
+        road: "Directly accessible via forest roads from Bettiah (75 km) or Narkatiaganj."
+      },
+      officialWebsite: "www.valmikitigerreserve.com",
+      helplines: [
+        { role: "Bettiah HQ Office", contact: "6207283609" }
+      ]
+    },
+    {
+      id: "manguraha_trail",
+      name: "Manguraha Nature Trail",
+      location: "West Champaran District (VTR)",
+      shortDesc: "A dense 5 km jungle trek winding past rivers and range offices with a wildlife awareness center.",
+      longDesc: "The Manguraha Nature Trail takes eco-tourists through 5 km of pristine forest. The trail runs via the Pandai River, SSB Border Checkpost, to the Manguraha Range Office where detailed statues of tigers, bears, leopards, and elephants have been installed to educate visitors. It is an amazing trail for spotting forest birds and tracks of wild carnivores.",
+      image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800",
+      rating: 4.7,
+      facts: {
+        trailLength: "5 km",
+        wildlifeStatues: "Tiger, Bear, Leopard, Monkey",
+        bestSeason: "November to March",
+        entryFee: "₹50 per person"
+      },
+      adventureTags: ["Jungle Trekking", "Wildlife Exhibits", "Nature Trails", "Birding"],
+      coordinates: { x: 130, y: 90 },
+      howToReach: {
+        air: "Gorakhpur Airport (140 km) or Patna Airport (300 km).",
+        rail: "Narkatiaganj Railway Station is 25 km from the Manguraha Range Office.",
+        road: "Buses and private cabs run from Bettiah (65 km) and Narkatiaganj (25 km)."
+      },
+      officialWebsite: "www.valmikitigerreserve.com",
+      helplines: [
+        { role: "Manguraha Range Officer", contact: "6205671631" },
+        { role: "Manguraha Help Desk", contact: "9973909350" }
+      ],
+      accommodations: [
+        { location: "Manguraha Camp", rooms: "02 Suites, 02 AC Stay Houses, 04 AC Tourist Huts, 06 Tent Huts, 02 Kotraha Eco-Huts" }
+      ]
+    },
+    {
+      id: "kauleshwar_jhula",
+      name: "Kauleshwar Jhula",
+      location: "West Champaran District (VTR)",
+      shortDesc: "An exciting hanging bridge suspended amid tall jungle trees, combined with exciting Gandak rafting.",
+      longDesc: "Kauleshwar Jhula is a majestic suspension bridge built high in the canopy of Valmiki Nagar forest, offering a thrilling walk above the ground. Nearby, the Gandak riverfront offers white-water river rafting along the dense forest boundary, providing sightings of gharials, dolphins, and turtles.",
+      image: "https://images.unsplash.com/photo-1546548970-71785318a17b?auto=format&fit=crop&q=80&w=800",
+      rating: 4.8,
+      facts: {
+        bridgeType: "Canopy Suspension Bridge",
+        waterActivities: "River Rafting, Boat Safari",
+        bestSeason: "November to March",
+        entryFee: "₹100 (Rafting Extra)"
+      },
+      adventureTags: ["Suspension Bridge", "River Rafting", "Gandak Safari", "Treehouse Canopy"],
+      coordinates: { x: 110, y: 85 },
+      howToReach: {
+        air: "Gorakhpur Airport (125 km) or Patna Airport (305 km).",
+        rail: "Bagaha Station is 45 km away, with local transport available to Valmikinagar.",
+        road: "Drive via NH-727. Bettiah is 105 km away and Gorakhpur is 125 km away."
+      },
+      officialWebsite: "www.valmikitigerreserve.com",
+      helplines: [
+        { role: "Valmikinagar Range Office", contact: "9162219095" }
+      ]
+    },
+    {
+      id: "bheriyari_grassland",
+      name: "Bheriyari Watchtower & Grassland",
+      location: "West Champaran District (VTR)",
+      shortDesc: "A wooden watchtower overlooking massive grasslands, perfect for watching herds of deer and bison.",
+      longDesc: "The Bheriyari Grassland is a wide, open clearing inside Valmiki Sanctuary. A tall wooden watchtower built here allows visitors to observe herds of spotted deer, wild boar, nilgai, and gaur grazing in their natural habitat, especially during the early mornings and late afternoons.",
+      image: "https://images.unsplash.com/photo-1603517454228-2f190e2908f5?auto=format&fit=crop&q=80&w=800",
+      rating: 4.5,
+      facts: {
+        watchtowerMaterial: "Local Sal Timber",
+        mainSightings: "Spotted Deer, Gaur, Wild Boar",
+        bestSeason: "November to March",
+        entryFee: "Included in reserve entry"
+      },
+      adventureTags: ["Wildlife Watching", "Watchtower Views", "Grassland Safaris", "Birding"],
+      coordinates: { x: 125, y: 75 },
+      howToReach: {
+        air: "Patna Airport (275 km) or Gorakhpur Airport (125 km).",
+        rail: "Valmiki Nagar Road station is 15 km away, or Bagaha is 35 km away.",
+        road: "Drive through forest routes from Bettiah (80 km) or Valmikinagar."
+      },
+      officialWebsite: "www.valmikitigerreserve.com",
+      helplines: [
+        { role: "Bettiah HQ Office", contact: "6207283609" }
+      ]
+    },
+    {
       id: "rajgir",
       name: "Rajgir Nature Safari & Glass Bridge",
       location: "Nalanda District",
@@ -152,6 +286,174 @@ const EcoData = {
         { role: "Karkatgarh Eco Park & Fall (Arvind K. Dubey, Range Officer)", contact: "9546725276" },
         { role: "Jagdahwa Dam Circuit (Gaurav Kumar, Forester)", contact: "8252839299" },
         { role: "Banjari / Khogh Adhaura (Sahil Anand, Range Officer)", contact: "8770863468" }
+      ]
+    },
+    {
+      id: "telhar_kund",
+      name: "Telhar Kund Waterfall",
+      location: "Kaimur District",
+      shortDesc: "A stunning waterfall plunging into a deep, emerald-green pool surrounded by rocky canyons.",
+      longDesc: "Telhar Kund is one of the most beautiful waterfalls in the Kaimur hills. The water cascades down a rocky gorge into an emerald pool. It is surrounded by lush green cliffs and rocky formations, making it a hotspot for nature photography and trekking. Currently, online booking is not available.",
+      image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
+      rating: 4.8,
+      facts: {
+        height: "80 meters approx",
+        coordinates: "24°51'2.32\"N, 83°43'10.45\"E",
+        distanceFromBhabua: "31 km",
+        bestSeason: "July to December"
+      },
+      adventureTags: ["Waterfall Trekking", "Gorge View", "Canyon Hiking", "Nature Photography"],
+      coordinates: { x: 95, y: 405 },
+      howToReach: {
+        air: "Lal Bahadur Shastri Airport, Varanasi (128 km).",
+        rail: "Bhabua Road Station (BBU) is 47 km away.",
+        road: "Accessible via ghat roads from Bhabua (31 km). Standard cabs and private vehicles are recommended."
+      },
+      bookingNotice: "Currently, online booking is not available for Telhar Kund. For permissions and inquiries, please contact the local Range Officer directly:",
+      helplines: [
+        { role: "Manoj Kumar, Range Officer", contact: "8544055700" },
+        { role: "Vivek Kumar, Forester", contact: "8789577417" },
+        { role: "Jyotish Kumar, Forest Guard", contact: "6204154731" }
+      ]
+    },
+    {
+      id: "karkatgarh",
+      name: "Karkatgarh Crocodile Sanctuary",
+      location: "Kaimur District",
+      shortDesc: "A historic waterfall on the Karmanasa River featuring a natural crocodile breeding habitat.",
+      longDesc: "Karkatgarh Waterfall is situated on the Karmanasa River. It was historically a hunting spot for Mughal rulers and British officials. Today, it is a protected eco-park featuring a suspension bridge, zip-lining, and a natural habitat where Mugger crocodiles can be spotted sunbathing on the riverbanks.",
+      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
+      rating: 4.6,
+      facts: {
+        river: "Karmanasa",
+        coordinates: "24°55'11.75\"N, 83°21'50.33\"E",
+        distanceFromBhabua: "42 km",
+        keySpecies: "Mugger Crocodile, Migratory Birds"
+      },
+      adventureTags: ["Crocodile Spotting", "Suspension Bridge", "Zip-lining", "Water Safaris"],
+      coordinates: { x: 80, y: 420 },
+      howToReach: {
+        air: "Lal Bahadur Shastri Airport, Varanasi (95 km).",
+        rail: "Bhabua Road Station (BBU) is 58 km away.",
+        road: "Accessed from Bhabua city (42 km) or Varanasi (95 km) via motorable forest routes."
+      },
+      bookingNotice: "Currently, online booking is not available for Karkatgarh Eco Park. For details, please contact the Range Officer:",
+      helplines: [
+        { role: "Arvind K. Dubey, Range Officer", contact: "9546725276" },
+        { role: "Arvind K. Sah, Forester", contact: "7764957782" },
+        { role: "Chandan Kumar, Forest Guard", contact: "9693821781" }
+      ]
+    },
+    {
+      id: "karamchat",
+      name: "Karamchat Nauka Vihar",
+      location: "Kaimur District",
+      shortDesc: "A pristine boating reservoir nestled in the foothills of Kaimur hills, ideal for birdwatching.",
+      longDesc: "Karamchat Nauka Vihar is centered around the Karamchat Dam reservoir. The water body is surrounded by the dry deciduous forests of Kaimur. It is a fantastic spot for motor boating, speed boating, and viewing migratory ducks and cranes during winters.",
+      image: "https://images.unsplash.com/photo-1570473541596-23797500c501?auto=format&fit=crop&q=80&w=800",
+      rating: 4.5,
+      facts: {
+        waterBody: "Karamchat Dam Reservoir",
+        coordinates: "25.037585°N, 83.604754°E",
+        distanceFromBhabua: "34 km",
+        bestSeason: "October to March"
+      },
+      adventureTags: ["Motor Boating", "Sunset Cruise", "Birdwatching", "Dam Fishing"],
+      coordinates: { x: 110, y: 395 },
+      howToReach: {
+        air: "Varanasi Airport (135 km) or Patna Airport (215 km).",
+        rail: "Bhabua Road Station (BBU) is 50 km away.",
+        road: "Drive 34 km from Bhabua city headquarters via motorable roads."
+      },
+      bookingNotice: "Currently, online booking is not available for Karamchat Nauka Vihar. For boating permissions, contact the Range Office:",
+      helplines: [
+        { role: "Manoj Kumar, Range Officer", contact: "8544055700" },
+        { role: "Dipu Kumar, Forester", contact: "9110154035" },
+        { role: "Pawan Kumar, Forest Guard", contact: "9142060710" }
+      ]
+    },
+    {
+      id: "mundeshwari_park",
+      name: "Maa Mundeshwari Wildlife Eco Park",
+      location: "Kaimur District",
+      shortDesc: "An ecological park built at the base of the sacred Mundeshwari Temple hill, featuring green lawns and walkways.",
+      longDesc: "Located at the base of the Mundeshwari Hill (home to India's oldest functional temple), this eco-park provides beautiful walking trails, manicured gardens, children's swings, and seating benches. It serves as a green oasis for pilgrims visiting the heritage site.",
+      image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800",
+      rating: 4.7,
+      facts: {
+        nearbyHeritage: "Mundeshwari Temple (Ancient)",
+        coordinates: "24°58'56.10\"N, 83°34'12.87\"E",
+        distanceFromBhabua: "12 km",
+        bestSeason: "October to April"
+      },
+      adventureTags: ["Gardening Walks", "Historic Pilgrimage", "Family Picnic", "Eco-trails"],
+      coordinates: { x: 105, y: 425 },
+      howToReach: {
+        air: "Varanasi Airport (117 km) or Patna Airport (215 km).",
+        rail: "Bhabua Road Station (BBU) is 28 km away.",
+        road: "Located just 12 km from Bhabua city, connected by smooth two-lane roads."
+      },
+      bookingNotice: "Currently, online booking is not available for Maa Mundeshwari Eco Park. Contact details:",
+      helplines: [
+        { role: "Manoj Kumar, Range Officer", contact: "8544055700" },
+        { role: "Vineet Kumar, Forester", contact: "7870107210" },
+        { role: "Bikram K. Sharma, Forest Guard", contact: "8292219148" }
+      ]
+    },
+    {
+      id: "jagdahwa_dam",
+      name: "Jagdahwa Dam Circuit",
+      location: "Kaimur District",
+      shortDesc: "A peaceful reservoir circuit bordered by forest, attracting migratory waterbirds.",
+      longDesc: "Jagdahwa Dam is a scenic irrigation reservoir bordered by dense forest. The nature circuit around it is highly favored by hikers and cycling enthusiasts. During winters, it becomes home to a large variety of migratory wetland birds, offering a peaceful birdwatching experience.",
+      image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=800",
+      rating: 4.5,
+      facts: {
+        waterBody: "Jagdahwa Dam",
+        coordinates: "24.565974°N, 83.670799°E",
+        distanceFromBhabua: "20 km",
+        bestSeason: "November to March"
+      },
+      adventureTags: ["Cycling Trails", "Birdwatching", "Dam Walks", "Nature Photography"],
+      coordinates: { x: 115, y: 430 },
+      howToReach: {
+        air: "Varanasi Airport (137 km).",
+        rail: "Bhabua Road Station (BBU) is 36 km away.",
+        road: "Located 20 km from Bhabua headquarters, accessible via local road networks."
+      },
+      bookingNotice: "Currently, online booking is not available for Jagdahwa Dam Nature Circuit. Contact details:",
+      helplines: [
+        { role: "Arvind K. Dubey, Range Officer", contact: "9546725276" },
+        { role: "Gaurav Kumar, Forester", contact: "8252839299" },
+        { role: "Santosh Kumar, Forest Guard", contact: "6206922902" }
+      ]
+    },
+    {
+      id: "adhaura_hills",
+      name: "Adhaura Hills (Banjari)",
+      location: "Kaimur District",
+      shortDesc: "A high-altitude hill station forest block featuring caves, waterfalls, and ancient rock paintings.",
+      longDesc: "Adhaura is situated on the Kaimur plateau at an altitude of 2000 feet. Banjari and Khogh are dense forest zones inside this block, famous for prehistoric caves, ancient rock art, and waterfalls like Telhar Kund. It is a fantastic escape for adventure campers and hikers.",
+      image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800",
+      rating: 4.7,
+      facts: {
+        elevation: "2,000 feet above sea level",
+        coordinates: "24.980241°N, 83.489648°E",
+        distanceFromBhabua: "77 km",
+        attractions: "Caves, Waterfalls, Rock Art"
+      },
+      adventureTags: ["Hill Camping", "Cave Exploration", "Plateau Hiking", "Prehistoric Art"],
+      coordinates: { x: 90, y: 440 },
+      howToReach: {
+        air: "Varanasi Airport (194 km) or Patna Airport (280 km).",
+        rail: "Bhabua Road Station (BBU) is 93 km away via hill roads."
+        road: "Drive 77 km from Bhabua city up the winding Adhaura ghat highway. Cabs are recommended."
+      },
+      bookingNotice: "Currently, online booking is not available for Adhaura forest area. Contact details:",
+      helplines: [
+        { role: "Sahil Anand, Range Officer", contact: "8770863468" },
+        { role: "Vijay Prakash, Forester", contact: "7549567302" },
+        { role: "Vivek Kumar, Forest Guard", contact: "9304337572" }
       ]
     },
     {
