@@ -1039,6 +1039,9 @@
   max-height: 90vh;
   overflow-y: auto;
   border-radius: var(--radius-xl);
+  background: var(--bg-secondary) !important; /* Forces solid background for readable text contrast */
+  color: var(--text-primary) !important;       /* Forces correct readable text color in light/dark modes */
+  box-shadow: var(--shadow-lg);
 }
 
 .booking-header {
