@@ -1,0 +1,133 @@
+/* CSS Variables & Design System */
+
+:root {
+  /* Fonts */
+  --font-headings: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+
+  /* Border Radii */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 30px;
+
+  /* Global Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Elevation (Soft Nature-inspired shadows) */
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
+
+  /* Light Theme (Default) */
+  --bg-primary: #f4f7f4;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #e8eee8;
+  
+  --text-primary: #122415;
+  --text-secondary: #4a5c4d;
+  --text-light: #7e9182;
+  
+  /* Primary HSL Palettes */
+  --primary-h: 125;
+  --primary-s: 55%;
+  --primary-l: 24%; /* Forest Green #1B5E20 equivalent base */
+  
+  --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+  --primary-light: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 15%));
+  --primary-dark: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 8%));
+  
+  --secondary: #4CAF50; /* Leaf Green */
+  --accent: #FFC107; /* Golden Sunset */
+  --accent-blue: #4FC3F7; /* Sky Blue */
+  --accent-brown: #795548; /* Earth Brown */
+
+  /* Glassmorphism Presets */
+  --glass-bg: rgba(255, 255, 255, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(27, 94, 32, 0.08);
+  --glass-blur: 15px;
+
+  /* Environmental colors */
+  --nav-bg: rgba(244, 247, 244, 0.1);
+  --theme-gradient: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #bbdefb 100%);
+  --hero-overlay: linear-gradient(to bottom, rgba(18, 36, 21, 0.3) 0%, rgba(18, 36, 21, 0.8) 100%);
+}
+
+/* Dark Theme overrides */
+[data-theme="dark"] {
+  --bg-primary: #0a0f0b;
+  --bg-secondary: #121a13;
+  --bg-tertiary: #19251b;
+  
+  --text-primary: #f0f7f1;
+  --text-secondary: #b2c9b6;
+  --text-light: #7da083;
+  
+  --primary-l: 45%; /* Lighter Forest Green to stand out on dark bg */
+  
+  --glass-bg: rgba(18, 26, 19, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  
+  --theme-gradient: linear-gradient(135deg, #0a0f0b 0%, #122415 50%, #0d1e2d 100%);
+  --hero-overlay: linear-gradient(to bottom, rgba(10, 15, 11, 0.4) 0%, rgba(10, 15, 11, 0.95) 100%);
+  --nav-bg: rgba(10, 15, 11, 0.15);
+}
+
+/* Seasonal Theme modifiers */
+[data-season="spring"] {
+  --primary-h: 135;
+  --primary-s: 60%;
+  --secondary: #66BB6A;
+  --accent: #FFEB3B; /* Fresh flowers yellow */
+  --theme-gradient: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 50%, #e0f2f1 100%);
+}
+[data-theme="dark"][data-season="spring"] {
+  --theme-gradient: linear-gradient(135deg, #09120a 0%, #152918 50%, #0f2422 100%);
+}
+
+[data-season="summer"] {
+  --primary-h: 36;
+  --primary-s: 70%;
+  --primary-l: 30%; /* Warm amber */
+  --secondary: #FFA726; /* Orange sunset */
+  --accent: #FF8F00;
+  --theme-gradient: linear-gradient(135deg, #fff8e1 0%, #ffe082 50%, #ffcc80 100%);
+}
+[data-theme="dark"][data-season="summer"] {
+  --theme-gradient: linear-gradient(135deg, #140e05 0%, #2b1f0c 50%, #291a05 100%);
+}
+
+[data-season="monsoon"] {
+  --primary-h: 200;
+  --primary-s: 65%;
+  --primary-l: 25%; /* Deep ocean/sky blue-grey */
+  --secondary: #26A69A; /* Cyan water */
+  --accent: #26C6DA;
+  --theme-gradient: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 50%, #80deea 100%);
+}
+[data-theme="dark"][data-season="monsoon"] {
+  --theme-gradient: linear-gradient(135deg, #041014 0%, #0c232b 50%, #0d2f3d 100%);
+}
+
+[data-season="winter"] {
+  --primary-h: 180;
+  --primary-s: 20%;
+  --primary-l: 20%; /* Deep pine grey */
+  --secondary: #78909C; /* Frosty blue */
+  --accent: #ECEFF1; /* Snow white */
+  --theme-gradient: linear-gradient(135deg, #eceff1 0%, #cfd8dc 50%, #b0bec5 100%);
+}
+[data-theme="dark"][data-season="winter"] {
+  --theme-gradient: linear-gradient(135deg, #0b0e10 0%, #171f24 50%, #1c2a30 100%);
+}

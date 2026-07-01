@@ -1,0 +1,228 @@
+/* Keyframe Animations & Cursor Stylings */
+
+/* Custom Cursor Follower (Premium UX Detail) */
+.custom-cursor-follower {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid var(--primary);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width var(--transition-fast), height var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+  mix-blend-mode: difference;
+}
+
+.custom-cursor-follower.hovering {
+  width: 50px;
+  height: 50px;
+  background: rgba(76, 175, 80, 0.2);
+  border-color: var(--secondary);
+}
+
+@media (max-width: 1024px) {
+  .custom-cursor-follower {
+    display: none; /* Disable cursor follower on touch screens */
+  }
+}
+
+/* Flying Birds Animation */
+.birds-container {
+  position: absolute;
+  top: 15%;
+  left: -10%;
+  width: 120%;
+  height: 200px;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.bird {
+  position: absolute;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3%3Cpath fill='%23ffffff' fill-opacity='0.4' d='M0,0 C5,10 10,12 13,10 C16,12 21,10 26,0 C20,5 15,6 13,4 C11,6 6,5 0,0 Z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 35px;
+  animation: flyAcross 25s linear infinite, birdFlap 0.8s ease-in-out infinite alternate;
+}
+
+.bird-1 {
+  top: 20px;
+  animation-delay: 0s;
+  animation-duration: 28s;
+  transform: scale(0.8);
+}
+
+.bird-2 {
+  top: 70px;
+  animation-delay: 4s;
+  animation-duration: 32s;
+  transform: scale(0.6);
+}
+
+.bird-3 {
+  top: 120px;
+  animation-delay: 8s;
+  animation-duration: 24s;
+  transform: scale(1.1);
+}
+
+@keyframes flyAcross {
+  0% {
+    left: -5%;
+    transform: translateY(0px) scaleX(1);
+  }
+  50% {
+    transform: translateY(30px) scaleX(1);
+  }
+  100% {
+    left: 105%;
+    transform: translateY(-10px) scaleX(1);
+  }
+}
+
+@keyframes birdFlap {
+  0% {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3%3Cpath fill='%23ffffff' fill-opacity='0.5' d='M0,0 C5,10 10,12 13,10 C16,12 21,10 26,0 C20,5 15,6 13,4 C11,6 6,5 0,0 Z'/%3E%3C/svg%3E");
+  }
+  100% {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3%3Cpath fill='%23ffffff' fill-opacity='0.5' d='M0,12 C5,8 10,6 13,8 C16,6 21,8 26,12 C20,9 15,8 13,10 C11,8 6,9 0,12 Z'/%3E%3C/svg%3E");
+  }
+}
+
+/* Falling Leaves Animation Layer */
+.leaves-animation-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.falling-leaf {
+  position: absolute;
+  top: -50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Skeleton Loading Shaders */
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-primary) 50%, var(--bg-tertiary) 75%);
+  background-size: 200% 100%;
+  animation: skeletonPulse 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+@keyframes skeletonPulse {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Morphing SVG Blobs background styling */
+.blob-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  filter: blur(80px);
+}
+
+.blob-shape {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  filter: blur(40px);
+  animation: blobMorph 20s infinite alternate;
+}
+
+.blob-shape-1 {
+  background: rgba(76, 175, 80, 0.2);
+  top: -10%;
+  left: 10%;
+  animation-duration: 25s;
+}
+
+.blob-shape-2 {
+  background: rgba(255, 193, 7, 0.15);
+  bottom: 10%;
+  right: 10%;
+  animation-duration: 30s;
+  animation-delay: 2s;
+}
+
+@keyframes blobMorph {
+  0% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+    border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
+  }
+  33% {
+    transform: translate(50px, -80px) scale(1.1) rotate(120deg);
+    border-radius: 40% 60% 50% 50% / 30% 50% 70% 60%;
+  }
+  66% {
+    transform: translate(-30px, 40px) scale(0.9) rotate(240deg);
+    border-radius: 60% 40% 60% 40% / 50% 30% 50% 70%;
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1) rotate(360deg);
+    border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
+  }
+}
+
+/* Water Ripple Effect Hover Indicator */
+.ripple-button-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: rippleAnimation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes rippleAnimation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Infinite Marquee text ribbon */
+.marquee-wrapper {
+  overflow: hidden;
+  display: flex;
+  white-space: nowrap;
+  padding: var(--spacing-md) 0;
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.marquee-content {
+  display: inline-flex;
+  animation: marqueeRun 25s linear infinite;
+  gap: 3rem;
+  font-family: var(--font-headings);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@keyframes marqueeRun {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

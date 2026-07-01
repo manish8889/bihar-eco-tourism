@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-season="spring">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Bihar Eco Tourism | Experience Nature. Preserve Heritage.</title>
+  <meta name="description" content="Discover Bihar's rich forests, waterfalls, wetlands, and sanctuaries. Plan a premium eco-adventure to Valmiki Tiger Reserve, Rajgir Glass Skywalk, and Vikramshila Dolphin Sanctuary.">
+  <meta name="keywords" content="Bihar Eco Tourism, Valmiki Tiger Reserve, Rajgir Glass Bridge, Kakolat Waterfall, Vikramshila Dolphin, Bihar Tourism, Wildlife Bihar">
+  <meta name="author" content="Bihar Eco Tourism Development Board">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bihar Eco Tourism | Experience Nature. Preserve Heritage.">
+  <meta property="og:description" content="Embark on a luxury sustainable adventure through Valmiki forests, Rajgir safaris, and Ganges dolphin cruises.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1615959189197-48400ad77f5c?auto=format&fit=crop&q=80&w=1200">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Custom Cursor Follower -->
+  <div class="custom-cursor-follower" id="cursor-follower"></div>
+
+  <!-- Falling Leaves Particle Layer -->
+  <div class="leaves-animation-container" id="leaves-container"></div>
+
+  <!-- Seasonal Particle Canvas -->
+  <canvas id="seasonal-canvas" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1;"></canvas>
+
+  <!-- --- STICKY NAVIGATION --- -->
+  <nav class="navbar" id="navbar" aria-label="Main Navigation">
+    <div class="container">
+      <a href="#" class="nav-logo">
+        <!-- SVG Leaf Icon -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 22s12-1 16-8c4-7-1-12-1-12S12 1 7 5C1 9 2 22 2 22z"/>
+          <path d="M12 12l-5 5"/>
+        </svg>
+        <span>Eco Tourism Bihar</span>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item"><a href="#">Home</a></li>
+        <li class="nav-item"><a href="#destinations">Destinations</a></li>
+        <li class="nav-item"><a href="#map-section">Interactive Map</a></li>
+        <li class="nav-item"><a href="#adventure">Adventure</a></li>
+        <li class="nav-item"><a href="#stays">Stays</a></li>
+        <li class="nav-item"><a href="#wildlife">Wildlife</a></li>
+        <li class="nav-item"><a href="#packages">Packages</a></li>
+        <li class="nav-item"><a href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a href="#blog">Blog</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Dark/Light Theme Button -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"></svg>
+        </button>
+        <!-- Book Now CTA -->
+        <button class="btn btn-primary book-cta" id="nav-book-btn">Book Now</button>
+
+        <!-- Mobile hamburger -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- --- HERO SECTION --- -->
+  <header class="hero" id="home">
+    <div class="hero-video-container">
+      <!-- Looping cinematic nature video from Pexels as a premium backdrop -->
+      <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=1920">
+        <source src="https://player.vimeo.com/external/477113110.sd.mp4?s=d99dfc4465d6a2f7c00e12080a229a2c358f2ad6&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+      </video>
+    </div>
+    
+    <!-- Morphing Ambient Blobs -->
+    <div class="blob-container">
+      <div class="blob-shape blob-shape-1"></div>
+      <div class="blob-shape blob-shape-2"></div>
+    </div>
+
+    <!-- Floating birds paths in sky -->
+    <div class="birds-container">
+      <div class="bird bird-1"></div>
+      <div class="bird bird-2"></div>
+      <div class="bird bird-3"></div>
+    </div>
+
+    <!-- Clouds Background -->
+    <div class="hero-clouds"></div>
+
+    <div class="hero-content">
+      <span style="font-family: var(--font-headings); font-weight:700; color:var(--accent); letter-spacing:3px; text-transform:uppercase; display:block; margin-bottom:15px;" class="reveal-on-scroll">Bihar Eco Tourism</span>
+      <h1 class="hero-headline reveal-on-scroll">Explore Bihar's Untouched Natural Paradise</h1>
+      <p class="hero-subheading reveal-on-scroll">Discover green forests, cascading waterfalls, river sanctuaries, eco trails, heritage resorts, and unforgettable adventures.</p>
+      
+      <div class="hero-ctas reveal-on-scroll">
+        <a href="#destinations" class="btn btn-primary">Explore Destinations</a>
+        <button class="btn btn-secondary book-cta">Book Eco Tour</button>
+      </div>
+
+      <!-- AI Search Input inside Hero -->
+      <div class="search-container reveal-on-scroll" style="margin-top: 40px;">
+        <div class="search-input-box">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="search-input" placeholder="Search Valmiki Tiger, Safari, Treehouse, Stays, Seasons..." aria-label="Search destinations, wildlife, and stays">
+        </div>
+        <div class="search-suggestions" id="search-suggestions" role="listbox"></div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" onclick="document.getElementById('destinations').scrollIntoView({behavior:'smooth'})">
+      <span>Scroll Down</span>
+      <div class="scroll-indicator-mouse"></div>
+    </div>
+  </header>
+
+  <!-- --- PARTNERS & AWARDS TICKER (Infinite Marquee) --- -->
+  <div class="marquee-wrapper">
+    <div class="marquee-content">
+      <span>★ Valmiki National Park</span>
+      <span>★ Rajgir Glass Canopy Safari</span>
+      <span>★ Asia's Gangetic Dolphin Sanctuary</span>
+      <span>★ Kakolat Mineral Springs</span>
+      <span>★ Sustainable Eco-Development Project</span>
+      <span>★ National Wildlife Conservation Award</span>
+      <span>★ Bihar Eco Tourism Board</span>
+      <!-- Repeated for infinite scroll seamless effect -->
+      <span>★ Valmiki National Park</span>
+      <span>★ Rajgir Glass Canopy Safari</span>
+      <span>★ Asia's Gangetic Dolphin Sanctuary</span>
+      <span>★ Kakolat Mineral Springs</span>
+      <span>★ Sustainable Eco-Development Project</span>
+      <span>★ National Wildlife Conservation Award</span>
+      <span>★ Bihar Eco Tourism Board</span>
+    </div>
+  </div>
+
+  <!-- --- FEATURED DESTINATIONS --- -->
+  <section id="destinations">
+    <div class="container">
+      <div class="section-header">
+        <h2>Featured Destinations</h2>
+        <p>Handpicked natural wonders showcasing Bihar's diverse ecology, mountains, caves, waterfalls, and tiger domains.</p>
+      </div>
+
+      <div class="destinations-grid">
+        <!-- Valmiki Tiger Reserve -->
+        <div class="dest-card reveal-on-scroll" id="dest-card-valmiki">
+          <div class="dest-image-container">
+            <img src="https://images.unsplash.com/photo-1615959189197-48400ad77f5c?auto=format&fit=crop&q=80&w=800" alt="Valmiki Tiger Reserve Sal Forest">
+          </div>
+          <div class="dest-overlay">
+            <div class="dest-location">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>West Champaran</span>
+            </div>
+            <h3 class="dest-title">Valmiki Tiger Reserve</h3>
+            <p class="dest-desc">Lush Himalayan foothill forests bordering Gandak River, featuring tigers, rhinos, leopards, and dense Sal woodlands.</p>
+            <div class="dest-facts">
+              <div class="dest-fact-item"><span>Area</span><strong>898 sq km</strong></div>
+              <div class="dest-fact-item"><span>Best Season</span><strong>Nov to Mar</strong></div>
+              <div class="dest-fact-item"><span>Wildlife</span><strong>Bengal Tiger</strong></div>
+            </div>
+            <div class="dest-actions">
+              <button class="btn btn-primary book-cta" data-destination="valmiki">Book</button>
+              <button class="btn btn-secondary" onclick="window.TourismMapInstance.selectLocation('valmiki')">Explore Map</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rajgir Safari -->
+        <div class="dest-card reveal-on-scroll" id="dest-card-rajgir">
+          <div class="dest-image-container">
+            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=800" alt="Rajgir Glass Bridge Canopy">
+          </div>
+          <div class="dest-overlay">
+            <div class="dest-location">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Nalanda</span>
+            </div>
+            <h3 class="dest-title">Rajgir Nature Safari</h3>
+            <p class="dest-desc">State-of-the-art wildlife enclosure showing lions, tigers, and bears, topped with India's iconic suspended Glass Skywalk.</p>
+            <div class="dest-facts">
+              <div class="dest-fact-item"><span>Skywalk</span><strong>85 Feet Long</strong></div>
+              <div class="dest-fact-item"><span>Best Season</span><span>Oct to Apr</span></div>
+              <div class="dest-fact-item"><span>Wildlife</span><strong>Lions, Bears</strong></div>
+            </div>
+            <div class="dest-actions">
+              <button class="btn btn-primary book-cta" data-destination="rajgir">Book</button>
+              <button class="btn btn-secondary" onclick="window.TourismMapInstance.selectLocation('rajgir')">Explore Map</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kakolat Waterfall -->
+        <div class="dest-card reveal-on-scroll" id="dest-card-kakolat">
+          <div class="dest-image-container">
+            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800" alt="Kakolat Waterfall Pool">
+          </div>
+          <div class="dest-overlay">
+            <div class="dest-location">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Nawada</span>
+            </div>
+            <h3 class="dest-title">Kakolat Waterfall</h3>
+            <p class="dest-desc">A magnificent 160-foot waterfall cascade pouring into a mineral pool, enveloped by verdant hill valleys.</p>
+            <div class="dest-facts">
+              <div class="dest-fact-item"><span>Height</span><strong>160 feet</strong></div>
+              <div class="dest-fact-item"><span>Best Season</span><strong>Jun to Oct</strong></div>
+              <div class="dest-fact-item"><span>Water</span><strong>Cold Spring</strong></div>
+            </div>
+            <div class="dest-actions">
+              <button class="btn btn-primary book-cta" data-destination="kakolat">Book</button>
+              <button class="btn btn-secondary" onclick="window.TourismMapInstance.selectLocation('kakolat')">Explore Map</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bhimbandh -->
+        <div class="dest-card reveal-on-scroll" id="dest-card-bhimbandh">
+          <div class="dest-image-container">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Bhimbandh Hot Springs Munger">
+          </div>
+          <div class="dest-overlay">
+            <div class="dest-location">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Munger</span>
+            </div>
+            <h3 class="dest-title">Bhimbandh Sanctuary</h3>
+            <p class="dest-desc">Geothermal hot spring pools situated inside dense bamboo woodlands, rich in neolithic stone-age history.</p>
+            <div class="dest-facts">
+              <div class="dest-fact-item"><span>Springs</span><strong>52°C - 65°C</strong></div>
+              <div class="dest-fact-item"><span>Best Season</span><span>Oct to Apr</span></div>
+              <div class="dest-fact-item"><span>Wildlife</span><strong>Sloth Bear</strong></div>
+            </div>
+            <div class="dest-actions">
+              <button class="btn btn-primary book-cta" data-destination="bhimbandh">Book</button>
+              <button class="btn btn-secondary" onclick="window.TourismMapInstance.selectLocation('bhimbandh')">Explore Map</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vikramshila Dolphin -->
+        <div class="dest-card reveal-on-scroll" id="dest-card-vikramshila">
+          <div class="dest-image-container">
+            <img src="https://images.unsplash.com/photo-1570473541596-23797500c501?auto=format&fit=crop&q=80&w=800" alt="Vikramshila Dolphin Boat Cruise">
+          </div>
+          <div class="dest-overlay">
+            <div class="dest-location">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Bhagalpur</span>
+            </div>
+            <h3 class="dest-title">Dolphin Sanctuary</h3>
+            <p class="dest-desc">Asia's premier Gangetic Dolphin river corridor, offering scenic boat rides to observe blind freshwater Susu dolphins.</p>
+            <div class="dest-facts">
+              <div class="dest-fact-item"><span>Corridor</span><strong>50 km River</strong></div>
+              <div class="dest-fact-item"><span>Best Season</span><strong>Oct to Jun</strong></div>
+              <div class="dest-fact-item"><span>Wildlife</span><strong>Gangetic Dolphin</strong></div>
+            </div>
+            <div class="dest-actions">
+              <button class="btn btn-primary book-cta" data-destination="vikramshila">Book</button>
+              <button class="btn btn-secondary" onclick="window.TourismMapInstance.selectLocation('vikramshila')">Explore Map</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kaimur Wildlife Sanctuary -->
+        <div class="dest-card reveal-on-scroll" id="dest-card-kaimur">
+          <div class="dest-image-container">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Kaimur hills gorge and caves">
+          </div>
+          <div class="dest-overlay">
+            <div class="dest-location">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Kaimur</span>
+            </div>
+            <h3 class="dest-title">Kaimur Sanctuary</h3>
+            <p class="dest-desc">Bihar's largest reserve featuring dramatic limestone gorges, ancient cave art, and the Telhar waterfall basins.</p>
+            <div class="dest-facts">
+              <div class="dest-fact-item"><span>Area</span><strong>1,342 sq km</strong></div>
+              <div class="dest-fact-item"><span>Best Season</span><span>Oct to Mar</span></div>
+              <div class="dest-fact-item"><span>Wildlife</span><strong>Nilgai, Leopard</strong></div>
+            </div>
+            <div class="dest-actions">
+              <button class="btn btn-primary book-cta" data-destination="kaimur">Book</button>
+              <button class="btn btn-secondary" onclick="window.TourismMapInstance.selectLocation('kaimur')">Explore Map</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pant Wildlife Sanctuary -->
+        <div class="dest-card reveal-on-scroll" id="dest-card-pant">
+          <div class="dest-image-container">
+            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800" alt="Pant Rajgir forest trail">
+          </div>
+          <div class="dest-overlay">
+            <div class="dest-location">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Nalanda</span>
+            </div>
+            <h3 class="dest-title">Pant (Rajgir) Sanctuary</h3>
+            <p class="dest-desc">Wooded hills enclosing historical hot water springs and providing habitats for medicinal herbs and barking deer.</p>
+            <div class="dest-facts">
+              <div class="dest-fact-item"><span>Area</span><strong>35 sq km</strong></div>
+              <div class="dest-fact-item"><span>Best Season</span><span>Nov to Mar</span></div>
+              <div class="dest-fact-item"><span>Wildlife</span><strong>Blue Bull</strong></div>
+            </div>
+            <div class="dest-actions">
+              <button class="btn btn-primary book-cta" data-destination="pant">Book</button>
+              <button class="btn btn-secondary" onclick="window.TourismMapInstance.selectLocation('pant')">Explore Map</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gautam Buddha Sanctuary -->
+        <div class="dest-card reveal-on-scroll" id="dest-card-gautam_buddha">
+          <div class="dest-image-container">
+            <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=800" alt="Gautam Buddha forest dry deciduous trees">
+          </div>
+          <div class="dest-overlay">
+            <div class="dest-location">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Gaya</span>
+            </div>
+            <h3 class="dest-title">Gautam Buddha Reserve</h3>
+            <p class="dest-desc">Spiritual dry deciduous woodland bordering Bodh Gaya, protecting tigers, wild cats, and rare forest birds.</p>
+            <div class="dest-facts">
+              <div class="dest-fact-item"><span>Area</span><strong>259 sq km</strong></div>
+              <div class="dest-fact-item"><span>Best Season</span><span>Nov to Apr</span></div>
+              <div class="dest-fact-item"><span>Wildlife</span><strong>Sloth Bear</strong></div>
+            </div>
+            <div class="dest-actions">
+              <button class="btn btn-primary book-cta" data-destination="gautam_buddha">Book</button>
+              <button class="btn btn-secondary" onclick="window.TourismMapInstance.selectLocation('gautam_buddha')">Explore Map</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- STATISTICS SECTION (WHY VISIT BIHAR) --- -->
+  <section class="glass-panel" style="margin: 40px auto; max-width:1300px; border-radius: var(--radius-xl);">
+    <div class="container">
+      <div class="stats-banner">
+        <div class="stat-item reveal-on-scroll">
+          <div class="stat-number" data-target="100" data-suffix="+">0</div>
+          <div class="stat-label">Eco Destinations</div>
+        </div>
+        <div class="stat-item reveal-on-scroll">
+          <div class="stat-number" data-target="15" data-suffix="+">0</div>
+          <div class="stat-label">Wildlife Sanctuaries</div>
+        </div>
+        <div class="stat-item reveal-on-scroll">
+          <div class="stat-number" data-target="200" data-suffix="+">0</div>
+          <div class="stat-label">Bird Species</div>
+        </div>
+        <div class="stat-item reveal-on-scroll">
+          <div class="stat-number" data-target="365" data-suffix=" Days">0</div>
+          <div class="stat-label">Nature Experience</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- INTERACTIVE MAP SECTION --- -->
+  <section id="map-section" style="background:var(--bg-secondary); border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Interactive Tourism Map</h2>
+        <p>Explore Bihar's ecological layout geographically. Click on highlighted hotspots and districts to display accommodation rates, safari options, and quick booking access.</p>
+      </div>
+
+      <div class="map-layout">
+        <!-- SVG Map of Bihar with specific tourism zones styled -->
+        <div class="map-container reveal-on-scroll">
+          <svg viewBox="0 0 650 500" class="svg-map" id="bihar-svg-map" xmlns="http://www.w3.org/2000/svg">
+            <!-- Background grid lines for styling -->
+            <defs>
+              <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="var(--glass-border)" stroke-width="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" opacity="0.3" rx="20"/>
+
+            <!-- Ganges River flowing center-horizontal -->
+            <path d="M 10 280 Q 200 290 320 285 T 640 290" fill="none" stroke="var(--accent-blue)" stroke-width="8" stroke-linecap="round" opacity="0.75"/>
+            <text x="20" y="270" fill="var(--text-light)" font-size="10" font-weight="bold" letter-spacing="1">GANGES RIVER</text>
+
+            <!-- Champaran / Valmiki Reserve Path -->
+            <path class="map-path" data-dest="valmiki" d="M 80 40 L 150 50 L 180 110 L 130 150 L 70 120 Z"/>
+            <text x="100" y="90" fill="var(--text-primary)" font-size="11" font-weight="bold" pointer-events="none">Valmiki (Champaran)</text>
+
+            <!-- Kaimur Hills Path -->
+            <path class="map-path" data-dest="kaimur" d="M 50 360 L 130 360 L 150 430 L 70 450 Z"/>
+            <text x="75" y="400" fill="var(--text-primary)" font-size="11" font-weight="bold" pointer-events="none">Kaimur Gorge</text>
+
+            <!-- Gaya / Gautam Buddha Path -->
+            <path class="map-path" data-dest="gautam_buddha" d="M 210 400 L 290 390 L 300 460 L 220 460 Z"/>
+            <text x="225" y="430" fill="var(--text-primary)" font-size="11" font-weight="bold" pointer-events="none">Gaya Reserve</text>
+
+            <!-- Nalanda / Rajgir Safari Path -->
+            <path class="map-path" data-dest="rajgir" d="M 310 330 L 370 320 L 380 380 L 300 380 Z"/>
+            <!-- Pant Sanctuary overlap path -->
+            <path class="map-path" data-dest="pant" d="M 290 310 L 330 310 L 330 340 L 290 340 Z" opacity="0.8"/>
+            <text x="315" y="355" fill="var(--text-primary)" font-size="11" font-weight="bold" pointer-events="none">Rajgir</text>
+
+            <!-- Kakolat (Nawada) Path -->
+            <path class="map-path" data-dest="kakolat" d="M 360 380 L 410 370 L 420 430 L 360 440 Z"/>
+            <text x="362" y="410" fill="var(--text-primary)" font-size="10" font-weight="bold" pointer-events="none">Kakolat Falls</text>
+
+            <!-- Bhimbandh Path -->
+            <path class="map-path" data-dest="bhimbandh" d="M 450 310 L 520 310 L 530 370 L 460 380 Z"/>
+            <text x="465" y="345" fill="var(--text-primary)" font-size="11" font-weight="bold" pointer-events="none">Bhimbandh</text>
+
+            <!-- Vikramshila Dolphin Path -->
+            <path class="map-path" data-dest="vikramshila" d="M 530 260 L 590 260 L 610 330 L 540 330 Z"/>
+            <text x="545" y="300" fill="var(--text-primary)" font-size="11" font-weight="bold" pointer-events="none">Dolphins</text>
+
+            <!-- Clickable Map Spots (Circles for specific centers) -->
+            <circle class="map-spot" data-dest="valmiki" cx="120" cy="80"/>
+            <circle class="map-spot" data-dest="rajgir" cx="340" cy="350"/>
+            <circle class="map-spot" data-dest="kakolat" cx="380" cy="390"/>
+            <circle class="map-spot" data-dest="bhimbandh" cx="490" cy="340"/>
+            <circle class="map-spot" data-dest="vikramshila" cx="560" cy="320"/>
+            <circle class="map-spot" data-dest="kaimur" cx="100" cy="410"/>
+            <circle class="map-spot" data-dest="pant" cx="320" cy="370"/>
+            <circle class="map-spot" data-dest="gautam_buddha" cx="260" cy="440"/>
+          </svg>
+        </div>
+
+        <!-- Details Card -->
+        <div class="map-card-container reveal-on-scroll" id="map-details-card">
+          <div class="map-default-prompt">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <h3>Select a Destination Map Region</h3>
+            <p>Click on any highlighted district node (like Valmiki, Rajgir, or Ganges Dolphin Sanctuary) to view seasonal guidelines, amenities, and packages.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- ADVENTURE ACTIVITIES --- -->
+  <section id="adventure">
+    <div class="container">
+      <div class="section-header">
+        <h2>Adventure & Eco Activities</h2>
+        <p>Immerse yourself in nature with our sustainable adventure experiences led by expert guides and wildlife rangers.</p>
+      </div>
+
+      <div class="adventure-grid">
+        <div class="adventure-card glass-panel reveal-on-scroll">
+          <div class="adventure-icon-box">
+            <!-- Compass SVG Icon -->
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+          </div>
+          <h3>Jungle Jeep Safari</h3>
+          <p>Ride deep into the tigers' kingdom at Valmiki or encounter lion enclosures inside Rajgir's deep green canyons.</p>
+        </div>
+
+        <div class="adventure-card glass-panel reveal-on-scroll">
+          <div class="adventure-icon-box">
+            <!-- Eye/Binoculars SVG Icon -->
+            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          </div>
+          <h3>Bird Watching</h3>
+          <p>Scan forest canopies and vast river wetlands hosting over 200 species of migratory and domestic birds.</p>
+        </div>
+
+        <div class="adventure-card glass-panel reveal-on-scroll">
+          <div class="adventure-icon-box">
+            <!-- Map SVG Icon -->
+            <svg viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+          </div>
+          <h3>Nature Eco-Walk</h3>
+          <p>Trek down winding deciduous forest pathways rich with fresh oxygen and rare ayurvedic medicinal herbs.</p>
+        </div>
+
+        <div class="adventure-card glass-panel reveal-on-scroll">
+          <div class="adventure-icon-box">
+            <!-- Tent SVG Icon -->
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"></path><path d="M12 2v20"></path></svg>
+          </div>
+          <h3>Wilderness Camping</h3>
+          <p>Spend starry nights inside durable glass dome tents along canyon rims or rivers with crackling campfires.</p>
+        </div>
+
+        <div class="adventure-card glass-panel reveal-on-scroll">
+          <div class="adventure-icon-box">
+            <!-- Anchor SVG Icon -->
+            <svg viewBox="0 0 24 24"><path d="M12 5V1m0 0a3 3 0 1 0-3 3m3-3a3 3 0 1 1 3 3M12 8c-6 0-6 7-6 7h12s0-7-6-7zM5 15h14M12 15v6m0 0a3 3 0 1 0-3-3m3 3a3 3 0 1 1 3-3"></path></svg>
+          </div>
+          <h3>Eco Boating</h3>
+          <p>Paddle down Gandak rivers or float across Ganges streams watching river mammals emerge at sunset.</p>
+        </div>
+
+        <div class="adventure-card glass-panel reveal-on-scroll">
+          <div class="adventure-icon-box">
+            <!-- Bike/Cycling SVG Icon -->
+            <svg viewBox="0 0 24 24"><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle><path d="M15 17.5L13 14H8.5L7 17.5M15 12h-4.5L8.5 14M12 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path></svg>
+          </div>
+          <h3>Sky Cycling</h3>
+          <p>Pedal along steel rope ziplines suspended 100 feet above the valley forests inside Rajgir Safari hills.</p>
+        </div>
+
+        <div class="adventure-card glass-panel reveal-on-scroll">
+          <div class="adventure-icon-box">
+            <!-- Camera SVG Icon -->
+            <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+          </div>
+          <h3>Nature Photography</h3>
+          <p>Photograph spectacular limestone gorges, roaring waterfall cascades, and Bengal tigers hiding in tall grass.</p>
+        </div>
+
+        <div class="adventure-card glass-panel reveal-on-scroll">
+          <div class="adventure-icon-box">
+            <!-- Hiking SVG Icon -->
+            <svg viewBox="0 0 24 24"><path d="M18 22v-4m0 0v-4m0 4h-4m4 0h4M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9l-7-7z"></path></svg>
+          </div>
+          <h3>Hill Trekking</h3>
+          <p>Hike up historical rocky tracks spanning Nalanda's ancient hills or Kaimur's massive plateau valleys.</p>
+        </div>
+
+        <div class="adventure-card glass-panel reveal-on-scroll">
+          <div class="adventure-icon-box">
+            <!-- Moon SVG Icon -->
+            <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </div>
+          <h3>Night Forest Safari</h3>
+          <p>Ride under starlight on restricted night safaris exploring active nocturnal owls, civets, and leopards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- ECO STAYS RESORTS --- -->
+  <section id="stays" style="background:var(--bg-secondary); border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Luxury Eco Resorts & Cottages</h2>
+        <p>Premium government and private lodges offering five-star amenities, local organic dining, and direct nature access.</p>
+      </div>
+
+      <div class="stays-grid">
+        <!-- Forest Cottage -->
+        <div class="stay-card reveal-on-scroll" id="stay-card-stay_valmiki_cottage">
+          <div class="stay-img-box">
+            <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&q=80&w=800" alt="Tiger Den Forest Cottage">
+            <span class="stay-tag">Forest Cottages</span>
+          </div>
+          <div class="stay-info">
+            <div class="stay-meta">
+              <span class="stay-location">Valmiki Nagar</span>
+              <span class="stay-rating">★ 4.8</span>
+            </div>
+            <h3 class="stay-title">Valmiki Tiger Den Resort</h3>
+            <div class="stay-amenities">
+              <span class="amenity-chip">AC Rooms</span>
+              <span class="amenity-chip">Guided Safari</span>
+              <span class="amenity-chip">River-view Dining</span>
+            </div>
+            <div class="stay-pricing">
+              <div>
+                <span style="font-size:0.75rem; color:var(--text-light); display:block;">PRICE PER NIGHT</span>
+                <span class="stay-price-val">₹4,500</span>
+              </div>
+              <button class="btn btn-primary book-cta" data-destination="valmiki">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Treehouse -->
+        <div class="stay-card reveal-on-scroll" id="stay-card-stay_rajgir_tree">
+          <div class="stay-img-box">
+            <img src="https://images.unsplash.com/photo-1546548970-71785318a17b?auto=format&fit=crop&q=80&w=800" alt="Venu Vana Canopy Treehouse">
+            <span class="stay-tag">Tree Houses</span>
+          </div>
+          <div class="stay-info">
+            <div class="stay-meta">
+              <span class="stay-location">Rajgir Hills</span>
+              <span class="stay-rating">★ 4.9</span>
+            </div>
+            <h3 class="stay-title">Venu Vana Tree Houses</h3>
+            <div class="stay-amenities">
+              <span class="amenity-chip">360° Hill Views</span>
+              <span class="amenity-chip">Private Deck</span>
+              <span class="amenity-chip">Star Gazing</span>
+            </div>
+            <div class="stay-pricing">
+              <div>
+                <span style="font-size:0.75rem; color:var(--text-light); display:block;">PRICE PER NIGHT</span>
+                <span class="stay-price-val">₹7,500</span>
+              </div>
+              <button class="btn btn-primary book-cta" data-destination="rajgir">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Camping -->
+        <div class="stay-card reveal-on-scroll" id="stay-card-stay_kakolat_camp">
+          <div class="stay-img-box">
+            <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&q=80&w=800" alt="Kakolat Foothills Camp">
+            <span class="stay-tag">Camping Tents</span>
+          </div>
+          <div class="stay-info">
+            <div class="stay-meta">
+              <span class="stay-location">Kakolat Falls</span>
+              <span class="stay-rating">★ 4.7</span>
+            </div>
+            <h3 class="stay-title">Kakolat Foothills Camp</h3>
+            <div class="stay-amenities">
+              <span class="amenity-chip">Bonfire Dinners</span>
+              <span class="amenity-chip">Guided Trekking</span>
+              <span class="amenity-chip">Waterfall Access</span>
+            </div>
+            <div class="stay-pricing">
+              <div>
+                <span style="font-size:0.75rem; color:var(--text-light); display:block;">PRICE PER NIGHT</span>
+                <span class="stay-price-val">₹2,800</span>
+              </div>
+              <button class="btn btn-primary book-cta" data-destination="kakolat">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Govt Lodge -->
+        <div class="stay-card reveal-on-scroll" id="stay-card-stay_bhimbandh_lodge">
+          <div class="stay-img-box">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800" alt="Bhimbandh Govt Lodge">
+            <span class="stay-tag">Government Lodges</span>
+          </div>
+          <div class="stay-info">
+            <div class="stay-meta">
+              <span class="stay-location">Bhimbandh Springs</span>
+              <span class="stay-rating">★ 4.4</span>
+            </div>
+            <h3 class="stay-title">Kharagpur Eco Lodge</h3>
+            <div class="stay-amenities">
+              <span class="amenity-chip">Hot Spring Pools</span>
+              <span class="amenity-chip">In-house Kitchen</span>
+              <span class="amenity-chip">Ranger Guards</span>
+            </div>
+            <div class="stay-pricing">
+              <div>
+                <span style="font-size:0.75rem; color:var(--text-light); display:block;">PRICE PER NIGHT</span>
+                <span class="stay-price-val">₹2,200</span>
+              </div>
+              <button class="btn btn-primary book-cta" data-destination="bhimbandh">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- WILDLIFE SHOWCASE CAROUSEL --- -->
+  <section id="wildlife">
+    <div class="container">
+      <div class="section-header">
+        <h2>Wildlife Showcase</h2>
+        <p>Hover over cards to discover scientific titles and fun biological facts about Bihar's native animals, birds, and aquatic mammals.</p>
+      </div>
+
+      <div class="wildlife-carousel-container reveal-on-scroll">
+        <div class="wildlife-slider" id="wildlife-slider">
+          <!-- Tiger -->
+          <div class="wildlife-card" id="wildlife-card-tiger">
+            <img src="https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&q=80&w=800" alt="Royal Bengal Tiger">
+            <div class="wildlife-card-info">
+              <span class="wildlife-sci-name">Panthera tigris</span>
+              <h3 style="color:#ffffff;">Royal Bengal Tiger</h3>
+              <p class="wildlife-fun-fact">The apex predator of Valmiki Tiger Reserve. Their population in Bihar has shown a significant positive rise due to tight conservation practices.</p>
+            </div>
+          </div>
+
+          <!-- Dolphin -->
+          <div class="wildlife-card" id="wildlife-card-dolphin">
+            <img src="https://images.unsplash.com/photo-1570473541596-23797500c501?auto=format&fit=crop&q=80&w=800" alt="Gangetic Dolphin Susu">
+            <div class="wildlife-card-info">
+              <span class="wildlife-sci-name">Platanista gangetica</span>
+              <h3 style="color:#ffffff;">Gangetic River Dolphin</h3>
+              <p class="wildlife-fun-fact">Declared the National Aquatic Animal of India. Locally known as 'Susu', they are completely blind and use echolocation to navigate.</p>
+            </div>
+          </div>
+
+          <!-- Sloth Bear -->
+          <div class="wildlife-card" id="wildlife-card-bear">
+            <img src="https://images.unsplash.com/photo-1603517454228-2f190e2908f5?auto=format&fit=crop&q=80&w=800" alt="Sloth Bear">
+            <div class="wildlife-card-info">
+              <span class="wildlife-sci-name">Melursus ursinus</span>
+              <h3 style="color:#ffffff;">Sloth Bear</h3>
+              <p class="wildlife-fun-fact">Highly active in the Bhimbandh and Gautam Buddha sanctuaries. They love feeding on termites and honey from dry deciduous forests.</p>
+            </div>
+          </div>
+
+          <!-- Leopard -->
+          <div class="wildlife-card" id="wildlife-card-leopard">
+            <img src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&q=80&w=800" alt="Indian Leopard">
+            <div class="wildlife-card-info">
+              <span class="wildlife-sci-name">Panthera pardus fusca</span>
+              <h3 style="color:#ffffff;">Indian Leopard</h3>
+              <p class="wildlife-fun-fact">Extremely agile climbers inhabiting Rajgir Nature Safari and Kaimur's rocky canyons. Highly elusive and active during nights.</p>
+            </div>
+          </div>
+
+          <!-- Peacock -->
+          <div class="wildlife-card" id="wildlife-card-peacock">
+            <img src="https://images.unsplash.com/photo-1520638029055-e9871fe4333e?auto=format&fit=crop&q=80&w=800" alt="Indian Peafowl Peacock">
+            <div class="wildlife-card-info">
+              <span class="wildlife-sci-name">Pavo cristatus</span>
+              <h3 style="color:#ffffff;">Indian Peafowl</h3>
+              <p class="wildlife-fun-fact">Abundant across all sanctuaries, especially in Rajgir. Their grand courtship dances are a major highlight during the onset of Monsoons.</p>
+            </div>
+          </div>
+
+          <!-- Hornbill -->
+          <div class="wildlife-card" id="wildlife-card-hornbill">
+            <img src="https://images.unsplash.com/photo-1591821096437-40f75612d5d7?auto=format&fit=crop&q=80&w=800" alt="Great Hornbill Bird">
+            <div class="wildlife-card-info">
+              <span class="wildlife-sci-name">Buceros bicornis</span>
+              <h3 style="color:#ffffff;">Great Hornbill</h3>
+              <p class="wildlife-fun-fact">Can be seen in the canopy of Valmiki Tiger Reserve. They play an indispensable role in forest seed dispersal and plant regeneration.</p>
+            </div>
+          </div>
+
+          <!-- Elephant -->
+          <div class="wildlife-card" id="wildlife-card-elephant">
+            <img src="https://images.unsplash.com/photo-1581850518616-bcb8077ab133?auto=format&fit=crop&q=80&w=800" alt="Asian Elephant">
+            <div class="wildlife-card-info">
+              <span class="wildlife-sci-name">Elephas maximus</span>
+              <h3 style="color:#ffffff;">Asian Elephant</h3>
+              <p class="wildlife-fun-fact">Frequently migrate through corridors connecting Valmiki to Nepal's Chitwan Park. Symbol of wisdom and majestic forest guardians.</p>
+            </div>
+          </div>
+
+          <!-- Butterfly -->
+          <div class="wildlife-card" id="wildlife-card-butterfly">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800" alt="Camouflage Baron Butterfly">
+            <div class="wildlife-card-info">
+              <span class="wildlife-sci-name">Euthalia aconthea</span>
+              <h3 style="color:#ffffff;">Baron Butterfly</h3>
+              <p class="wildlife-fun-fact">Found in mango orchards and dense sanctuaries of Bihar. Known for their perfect camouflage, blending seamlessly into green leaves.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-nav">
+          <button class="carousel-nav-btn" id="wild-prev" aria-label="Slide wildlife left">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button class="carousel-nav-btn" id="wild-next" aria-label="Slide wildlife right">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- SEASONAL TOURISM MODIFIER --- -->
+  <section style="background:var(--bg-secondary); border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Seasonal Tourism</h2>
+        <p>Switch seasons to see the background palette adapt, activating blossom drops, monsoonal rain showers, or winter mist particles.</p>
+      </div>
+
+      <div class="season-selector reveal-on-scroll">
+        <button class="season-btn active" data-season="spring">
+          <!-- Spring Leaf SVG -->
+          <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          <span>Spring Mood</span>
+        </button>
+
+        <button class="season-btn" data-season="summer">
+          <!-- Sun SVG -->
+          <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line></svg>
+          <span>Summer Mood</span>
+        </button>
+
+        <button class="season-btn" data-season="monsoon">
+          <!-- Cloud Rain SVG -->
+          <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M16 13a4 4 0 0 1-8 0v-2H5a3 3 0 0 1 0-6h1.28A5 5 0 0 1 16 7.28A4 4 0 0 1 16 13z"></path><line x1="8" y1="17" x2="8" y2="21"></line><line x1="12" y1="19" x2="12" y2="23"></line><line x1="16" y1="17" x2="16" y2="21"></line></svg>
+          <span>Monsoon Mood</span>
+        </button>
+
+        <button class="season-btn" data-season="winter">
+          <!-- Snowflake SVG -->
+          <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><line x1="2" y1="12" x2="22" y2="12"></line><line x1="12" y1="2" x2="12" y2="22"></line><path d="M20 16l-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4M8 20l4-4 4 4"></path></svg>
+          <span>Winter Mood</span>
+        </button>
+      </div>
+
+      <!-- Seasonal Recommendation Details Card Grid -->
+      <div class="season-recommendation-grid reveal-on-scroll">
+        <div class="glass-panel" style="text-align: center;">
+          <h3 style="color:var(--primary); margin-bottom:10px;">Valmiki Sal Forests</h3>
+          <p style="font-size:0.95rem;">Spring brings orchid blossoms, Monsoon creates massive wetlands, and Winter offers dense tiger viewing opportunities.</p>
+        </div>
+        <div class="glass-panel" style="text-align: center;">
+          <h3 style="color:var(--primary); margin-bottom:10px;">Rajgir Hill Safaris</h3>
+          <p style="font-size:0.95rem;">Best trekked during pleasant winter breezes or spring mornings. Glass bridges sparkle beautifully in summer sunsets.</p>
+        </div>
+        <div class="glass-panel" style="text-align: center;">
+          <h3 style="color:var(--primary); margin-bottom:10px;">Kakolat Cascades</h3>
+          <p style="font-size:0.95rem;">Roars with majestic cascading volume in Monsoon showers. Cool pools offer ideal heat relief during summer peaks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- PINTEREST STYLE GALLERY --- -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <h2>Masonry Photo Gallery</h2>
+        <p>A collection of high-definition visuals capturing sanctuaries, waterfalls, birds, and forest valleys. Click to launch lightbox.</p>
+      </div>
+
+      <div class="gallery-filter reveal-on-scroll">
+        <button class="gallery-filter-btn active" data-filter="all">All Photos</button>
+        <button class="gallery-filter-btn" data-filter="wildlife">Wildlife</button>
+        <button class="gallery-filter-btn" data-filter="nature">Nature</button>
+        <button class="gallery-filter-btn" data-filter="waterfalls">Waterfalls</button>
+        <button class="gallery-filter-btn" data-filter="forest">Forest</button>
+        <button class="gallery-filter-btn" data-filter="birds">Birds</button>
+        <button class="gallery-filter-btn" data-filter="camping">Camping</button>
+      </div>
+
+      <div class="gallery-masonry reveal-on-scroll">
+        <!-- Item 1 -->
+        <div class="gallery-item" data-category="wildlife forest">
+          <img src="https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&q=80&w=400" alt="Tiger strolling in forest">
+          <div class="gallery-item-overlay">
+            <h4>Bengal Tiger</h4>
+            <span>Valmiki Canopy</span>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-item" data-category="nature waterfalls">
+          <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=400" alt="Waterfall cascade pool">
+          <div class="gallery-item-overlay">
+            <h4>Kakolat Cascades</h4>
+            <span>Nawada Valley</span>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="gallery-item" data-category="wildlife birds">
+          <img src="https://images.unsplash.com/photo-1591821096437-40f75612d5d7?auto=format&fit=crop&q=80&w=400" alt="Great Hornbill bird">
+          <div class="gallery-item-overlay">
+            <h4>Great Hornbill</h4>
+            <span>Valmiki Wetland</span>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="gallery-item" data-category="nature forest camping">
+          <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&q=80&w=400" alt="Eco Dome Camp Setup">
+          <div class="gallery-item-overlay">
+            <h4>Foothills Camp</h4>
+            <span>Kakolat Hills</span>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="gallery-item" data-category="nature forest">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=400" alt="Deep green forests Kaimur">
+          <div class="gallery-item-overlay">
+            <h4>Deciduous Canopy</h4>
+            <span>Kaimur Gorge</span>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="gallery-item" data-category="wildlife">
+          <img src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&q=80&w=400" alt="Leopard sitting on rock">
+          <div class="gallery-item-overlay">
+            <h4>Indian Leopard</h4>
+            <span>Rajgir Zoo Safari</span>
+          </div>
+        </div>
+
+        <!-- Item 7 -->
+        <div class="gallery-item" data-category="nature waterfalls">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=400" alt="Steam pools and waterfalls">
+          <div class="gallery-item-overlay">
+            <h4>Telhar Waterfall</h4>
+            <span>Kaimur Gorge</span>
+          </div>
+        </div>
+
+        <!-- Item 8 -->
+        <div class="gallery-item" data-category="wildlife birds">
+          <img src="https://images.unsplash.com/photo-1520638029055-e9871fe4333e?auto=format&fit=crop&q=80&w=400" alt="Courtship dance of Peacock">
+          <div class="gallery-item-overlay">
+            <h4>Peafowl Dance</h4>
+            <span>Pant Reserve</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- 360° IMMERSIVE VIRTUAL TOUR --- -->
+  <section style="background:var(--bg-secondary); border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border);">
+    <div class="container">
+      <div class="section-header">
+        <h2>360° Virtual Tour</h2>
+        <p>Fly over Valmiki reserves or walk across the Rajgir Glass skywalk in virtual reality. VR Headset ready.</p>
+      </div>
+
+      <div class="virtual-tour-box reveal-on-scroll">
+        <iframe class="virtual-tour-iframe" id="virtual-tour-iframe" title="Interactive 360 virtual guide map"></iframe>
+        
+        <div class="virtual-tour-overlay">
+          <!-- SVG Play Button -->
+          <button id="virtual-play-btn" class="btn btn-accent" style="padding: 1.2rem 2.5rem; font-size:1.15rem; border-radius:50px;">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" style="margin-right:8px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Launch Virtual 360° Experience
+          </button>
+          <p style="margin-top:15px; color:rgba(255,255,255,0.9); font-weight:500;">Simulate panoramic walk paths in high definition</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- TOUR PACKAGES --- -->
+  <section id="packages">
+    <div class="container">
+      <div class="section-header">
+        <h2>Eco Tour Packages</h2>
+        <p>All-inclusive planned packages configured to support local communities, forest guides, and conservation projects.</p>
+      </div>
+
+      <div class="packages-grid">
+        <!-- Pkg 1 -->
+        <div class="package-card glass-panel reveal-on-scroll">
+          <div class="package-header">
+            <span class="package-duration">2 Days / 1 Night</span>
+            <h3>Weekend Wilderness Escape</h3>
+            <div class="package-price">₹3,999<span>/ person</span></div>
+          </div>
+          <ul class="package-features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Jungle Jeep Safari</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Eco-resort cottage stay</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Guided nature forest walk</li>
+          </ul>
+          <button class="btn btn-primary book-cta" data-destination="valmiki">Book Package</button>
+        </div>
+
+        <!-- Pkg 2 -->
+        <div class="package-card glass-panel reveal-on-scroll">
+          <div class="package-header">
+            <span class="package-duration">4 Days / 3 Nights</span>
+            <h3>Heritage & Wildlife Tour</h3>
+            <div class="package-price">₹8,999<span>/ person</span></div>
+          </div>
+          <ul class="package-features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Glass Skywalk Access</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Wildlife Open Zoo Safari</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Dolphin Boat Sightseeing</li>
+          </ul>
+          <button class="btn btn-primary book-cta" data-destination="rajgir">Book Package</button>
+        </div>
+
+        <!-- Pkg 3 -->
+        <div class="package-card glass-panel reveal-on-scroll">
+          <div class="package-header">
+            <span class="package-duration">4 Days / 3 Nights</span>
+            <h3>Eco-Luxury Royal Retreat</h3>
+            <div class="package-price">₹18,999<span>/ person</span></div>
+          </div>
+          <ul class="package-features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Canopy Treehouse Suite</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Private Guide & SUV</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>VIP Jungle Safaris</li>
+          </ul>
+          <button class="btn btn-primary book-cta" data-destination="rajgir">Book Package</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- BLOG & CONSERVATION STORIES --- -->
+  <section id="blog" style="background:var(--bg-secondary); border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Conservation & Stories</h2>
+        <p>Explore articles on wildlife protection programs, eco tips, and tour planning guides published by forest rangers.</p>
+      </div>
+
+      <div class="bento-grid">
+        <!-- Story 1 -->
+        <div class="bento-card glass-panel reveal-on-scroll" style="display:flex; flex-direction:column; justify-content:space-between; padding:0; overflow:hidden;">
+          <div style="height:170px;"><img src="https://images.unsplash.com/photo-1570473541596-23797500c501?auto=format&fit=crop&q=80&w=400" alt="Dolphins splashing" style="width:100%; height:100%; object-fit:cover;"></div>
+          <div style="padding:20px;">
+            <span style="font-size:0.75rem; color:var(--secondary); font-weight:700; text-transform:uppercase;">CONSERVATION</span>
+            <h3 style="margin:5px 0 10px 0; font-size:1.15rem;">Saving the Susu: Gangetic River Dolphins</h3>
+            <p style="font-size:0.85rem; line-height:1.4;">Community-led initiatives are increasing survival rates of blind dolphins in the Bhagalpur Ganges channel...</p>
+          </div>
+        </div>
+
+        <!-- Story 2 -->
+        <div class="bento-card glass-panel reveal-on-scroll" style="display:flex; flex-direction:column; justify-content:space-between; padding:0; overflow:hidden;">
+          <div style="height:170px;"><img src="https://images.unsplash.com/photo-1615959189197-48400ad77f5c?auto=format&fit=crop&q=80&w=400" alt="Forest path Valmiki" style="width:100%; height:100%; object-fit:cover;"></div>
+          <div style="padding:20px;">
+            <span style="font-size:0.75rem; color:var(--secondary); font-weight:700; text-transform:uppercase;">TRAVEL GUIDES</span>
+            <h3 style="margin:5px 0 10px 0; font-size:1.15rem;">The Ultimate Guide to Valmiki Reserves</h3>
+            <p style="font-size:0.85rem; line-height:1.4;">Planning your first forest holiday? View our route map breakdowns, tiger spotting spots, and camp guidelines...</p>
+          </div>
+        </div>
+
+        <!-- Story 3 -->
+        <div class="bento-card glass-panel reveal-on-scroll" style="display:flex; flex-direction:column; justify-content:space-between; padding:0; overflow:hidden;">
+          <div style="height:170px;"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=400" alt="Kakolat waterfalls mist" style="width:100%; height:100%; object-fit:cover;"></div>
+          <div style="padding:20px;">
+            <span style="font-size:0.75rem; color:var(--secondary); font-weight:700; text-transform:uppercase;">NATURE</span>
+            <h3 style="margin:5px 0 10px 0; font-size:1.15rem;">Chasing Waterfalls at Kakolat Hills</h3>
+            <p style="font-size:0.85rem; line-height:1.4;">Read the mystical Vedic legends, explore healing minerals, and find secret trekking trails flanking the falls...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- NEWSLETTER --- -->
+  <section style="padding: var(--spacing-lg) 0;">
+    <div class="container">
+      <div class="glass-panel reveal-on-scroll" style="padding:var(--spacing-lg) var(--spacing-md); border-radius: var(--radius-xl); text-align:center; position:relative; overflow:hidden;">
+        <!-- Morphing backdrop gradient -->
+        <div style="position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(circle, rgba(76, 175, 80, 0.08) 0%, transparent 60%); z-index:-1;"></div>
+        
+        <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom:10px;">Preserve Heritage. Get Nature Stories.</h2>
+        <p style="max-width:600px; margin:0 auto var(--spacing-md) auto;">Subscribe to get seasonal wildlife migration schedules, booking discounts, and updates on Bihar conservation drives.</p>
+
+        <form onsubmit="event.preventDefault(); alert('Thank you for subscribing to Bihar Eco Tourism updates!'); this.reset();" style="display:flex; max-width:500px; margin:0 auto; gap:10px; flex-wrap:wrap; justify-content:center;">
+          <input type="email" placeholder="Your Email Address" required class="booking-input" style="flex:1; min-width:250px; background:var(--bg-primary); border-radius:30px; border-color:var(--glass-border);">
+          <button class="btn btn-primary" type="submit" style="padding: 0.8rem 2.2rem; border-radius:30px;">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- FOOTER --- -->
+  <footer class="footer" aria-label="Footer Navigation">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <!-- SVG Leaf Icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 22s12-1 16-8c4-7-1-12-1-12S12 1 7 5C1 9 2 22 2 22z"/>
+              <path d="M12 12l-5 5"/>
+            </svg>
+            <span>Bihar Eco Tourism</span>
+          </div>
+          <p style="font-size:0.95rem; margin-bottom:20px;">Dedicated to establishing carbon-neutral tourism corridors protecting Bengal Tigers, Gangetic Dolphins, and ancient forest valleys.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <a href="#" class="social-icon" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Destinations</h4>
+          <ul class="footer-links">
+            <li><a href="#destinations">Valmiki Forest</a></li>
+            <li><a href="#destinations">Rajgir Ziplines</a></li>
+            <li><a href="#destinations">Dolphin River</a></li>
+            <li><a href="#destinations">Kakolat Pools</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#adventure">Eco Activities</a></li>
+            <li><a href="#stays">Resorts & Cottages</a></li>
+            <li><a href="#packages">Tour Packages</a></li>
+            <li><a href="#blog">Stories Board</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Official Coordinates</h4>
+          <p style="font-size:0.9rem;">Bihar Eco Tourism Development Board, Kautilya Vihar, Patna - 800001</p>
+          <p style="font-size:0.9rem; margin-top:10px;"><strong>Helpline:</strong> 1800-3456-112 (9 AM - 6 PM)</p>
+          <div class="footer-map-box">
+            <!-- Simulated premium stylized coordinates outline map representation -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115132.86107238263!2d85.07300236166567!3d25.608022403164923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f29937c52d4f05%3A0x831a0e05f607b270!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="Bihar Tourism Coordinates Patna Map"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Department of Tourism, Government of Bihar. All rights reserved.</span>
+        <span>WCAG AA Compliant | Designed for Nature Protection</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- --- CUSTOM LIGHTBOX POPUP --- -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <img src="" alt="HD Gallery Lightbox Preview" class="lightbox-image" id="lightbox-image">
+    </div>
+  </div>
+
+  <!-- --- BOOKING WIZARD DIALOG MODAL --- -->
+  <div class="booking-modal" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-wizard-title">
+    <div class="booking-container glass-panel">
+      
+      <div class="booking-header">
+        <h2 id="booking-wizard-title" style="font-size:1.5rem; margin-bottom:0;">Plan Your Eco-Tour</h2>
+        <button class="booking-close" aria-label="Close booking form">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="booking-progress-container">
+        <div class="booking-progress-bar">
+          <div class="booking-progress-fill"></div>
+        </div>
+        <div class="booking-steps-indicator">
+          <span>Destination</span>
+          <span>Date</span>
+          <span>Guests</span>
+          <span>Accommodation</span>
+          <span>Activities</span>
+          <span>Checkout</span>
+          <span>Ticket</span>
+        </div>
+      </div>
+
+      <!-- Step 1: Destination -->
+      <div class="booking-step active" id="booking-step-1">
+        <div class="booking-field-group">
+          <label for="booking-dest-select" class="booking-label">Choose your dream eco-destination:</label>
+          <select id="booking-dest-select" class="booking-select">
+            <!-- Populated dynamically via JS -->
+          </select>
+        </div>
+      </div>
+
+      <!-- Step 2: Date -->
+      <div class="booking-step" id="booking-step-2">
+        <div class="booking-field-group">
+          <label for="booking-date" class="booking-label">Select starting date of adventure:</label>
+          <input type="date" id="booking-date" class="booking-input" min="2026-07-01">
+        </div>
+      </div>
+
+      <!-- Step 3: Guests -->
+      <div class="booking-step" id="booking-step-3">
+        <div class="booking-field-group">
+          <label for="booking-guests" class="booking-label">Number of travellers:</label>
+          <input type="number" id="booking-guests" class="booking-input" value="1" min="1" max="20">
+        </div>
+      </div>
+
+      <!-- Step 4: Accommodation -->
+      <div class="booking-step" id="booking-step-4">
+        <div class="booking-field-group">
+          <span class="booking-label">Choose eco stays category:</span>
+          <div class="booking-grid-select">
+            <div class="booking-card-option" data-accom="Forest Cottages">
+              <h4>Forest Cottage</h4>
+              <p style="font-size:0.8rem; color:var(--text-light); margin-top:3px;">Eco-resorts nestled under jungle trees.</p>
+            </div>
+            <div class="booking-card-option" data-accom="Tree Houses">
+              <h4>Luxury Treehouse</h4>
+              <p style="font-size:0.8rem; color:var(--text-light); margin-top:3px;">Suspended wood deck canopy suites.</p>
+            </div>
+            <div class="booking-card-option" data-accom="Camping Tents">
+              <h4>Canyon Tents</h4>
+              <p style="font-size:0.8rem; color:var(--text-light); margin-top:3px;">Dome camping beds alongside streams.</p>
+            </div>
+            <div class="booking-card-option" data-accom="Government Lodges">
+              <h4>Government Eco Lodge</h4>
+              <p style="font-size:0.8rem; color:var(--text-light); margin-top:3px;">Spacious family suites managed by forestry board.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5: Activities -->
+      <div class="booking-step" id="booking-step-5">
+        <div class="booking-field-group">
+          <span class="booking-label">Add adventure checklists (Optional):</span>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:10px;">
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+              <input type="checkbox" value="Jungle Jeep Safari" class="activity-checkbox"> Jungle Safari
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+              <input type="checkbox" value="River Boating" class="activity-checkbox"> River Boating
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+              <input type="checkbox" value="Guided Trekking" class="activity-checkbox"> Guided Trekking
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+              <input type="checkbox" value="Glass Bridge Entry" class="activity-checkbox"> Glass Bridge Entry
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+              <input type="checkbox" value="Nature Photography Guide" class="activity-checkbox"> Pro Photo Guide
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+              <input type="checkbox" value="Wildlife Night Safari" class="activity-checkbox"> Night Safari
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 6: Checkout Details -->
+      <div class="booking-step" id="booking-step-6">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-bottom:20px;">
+          <div>
+            <label for="booking-name" class="booking-label">Primary Traveller Name:</label>
+            <input type="text" id="booking-name" class="booking-input" placeholder="e.g. John Doe">
+          </div>
+          <div>
+            <label for="booking-email" class="booking-label">Email Address:</label>
+            <input type="email" id="booking-email" class="booking-input" placeholder="e.g. john@example.com">
+          </div>
+        </div>
+
+        <div class="glass-panel" id="booking-summary-details" style="background:var(--bg-primary); padding:15px; border-radius:var(--radius-md);">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Step 7: Ticket Generator -->
+      <div class="booking-step" id="booking-step-7">
+        <div id="booking-ticket-box">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <div class="booking-footer">
+        <button class="btn btn-secondary" id="btn-prev">Go Back</button>
+        <button class="btn btn-primary" id="btn-next">Next Step</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CDN scripts for GSAP ScrollTrigger & Lenis Smooth Scroll -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+  <!-- Application Logic -->
+  <script src="js/data.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/carousel.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/seasons.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
