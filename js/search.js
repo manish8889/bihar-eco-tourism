@@ -201,12 +201,21 @@ class SearchEngine {
     const anchorEl = document.getElementById(anchorId);
     if (!anchorEl) return;
 
-    // Smooth scroll to section
-    anchorEl.scrollIntoView({ behavior: 'smooth' });
+    const cardEl = document.getElementById(targetId);
+    const targetEl = cardEl || anchorEl;
+
+    // Scroll to the card with an offset of 95px to prevent sticky header overlap
+    const headerOffset = 95;
+    const elementPosition = targetEl.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
 
     // Wait for scroll to settle, then highlight card
     setTimeout(() => {
-      const cardEl = document.getElementById(targetId);
       if (cardEl) {
         cardEl.style.outline = "3px solid var(--accent)";
         cardEl.style.boxShadow = "0 0 25px var(--accent)";

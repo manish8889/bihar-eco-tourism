@@ -1216,14 +1216,15 @@
   top: calc(100% + 10px);
   left: 0;
   width: 100%;
-  background: var(--bg-secondary);
+  background: var(--bg-secondary) !important; /* Forces solid background */
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-  z-index: 100;
+  box-shadow: var(--shadow-lg);
+  z-index: 1200 !important; /* Renders above all other stacked elements */
   display: none;
-  max-height: 300px;
+  max-height: 350px;
   overflow-y: auto;
+  opacity: 1 !important;
 }
 
 .search-suggestions.active {
@@ -1231,30 +1232,32 @@
 }
 
 .suggestion-item {
-  padding: 12px 20px;
+  padding: 10px 15px;
   cursor: pointer;
-  transition: background var(--transition-fast);
+  transition: all var(--transition-fast);
   border-bottom: 1px solid var(--bg-tertiary);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 12px;
 }
 
 .suggestion-item:last-child {
   border-bottom: none;
 }
 
-.suggestion-item:hover {
-  background: var(--bg-tertiary);
+.suggestion-item:hover, .suggestion-item.focused {
+  background: var(--bg-tertiary) !important;
 }
 
 .suggestion-type {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   background: var(--primary);
   color: #ffffff;
-  padding: 2px 8px;
+  padding: 3px 8px;
   border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 /* --- FOOTER --- */
