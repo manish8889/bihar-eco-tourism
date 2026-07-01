@@ -21,9 +21,15 @@ class BookingWizard {
   initEvents() {
     // Open Booking modal on click of any CTA buttons
     document.addEventListener('click', (e) => {
-      if (e.target.classList.contains('book-cta') || e.target.closest('.book-cta')) {
+      const target = e.target.closest('.book-cta') || (e.target.classList.contains('book-cta') ? e.target : null);
+      if (target) {
+        const destId = target.dataset.destination || "";
+        if (destId === 'rajgir') {
+          e.preventDefault();
+          window.open('https://rajgirsafari.bihar.gov.in/', '_blank');
+          return;
+        }
         e.preventDefault();
-        const destId = e.target.dataset.destination || "";
         this.openWizard(destId);
       }
     });
