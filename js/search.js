@@ -83,27 +83,45 @@ class SearchEngine {
     this.searchInput.addEventListener('input', (e) => {
       const val = e.target.value.trim().toLowerCase();
       this.renderSuggestions(val);
+      this.filterHomepageCards(val); // Filters homepage cards in real-time as you type
     });
 
     // Keyboard navigation (Arrow keys + Enter + Esc)
     this.searchInput.addEventListener('keydown', (e) => {
-      if (!this.suggestionsBox.classList.contains('active') || this.currentMatches.length === 0) return;
+      const isSuggestionsActive = this.suggestionsBox.classList.contains('active');
 
-      if (e.key === 'ArrowDown') {
+      if (e.key === 'ArrowDown' && isSuggestionsActive && this.currentMatches.length > 0) {
         e.preventDefault();
         this.activeIndex = (this.activeIndex + 1) % this.currentMatches.length;
         this.updateActiveSuggestion();
       } 
-      else if (e.key === 'ArrowUp') {
+      else if (e.key === 'ArrowUp' && isSuggestionsActive && this.currentMatches.length > 0) {
         e.preventDefault();
         this.activeIndex = (this.activeIndex - 1 + this.currentMatches.length) % this.currentMatches.length;
         this.updateActiveSuggestion();
       } 
       else if (e.key === 'Enter') {
         e.preventDefault();
-        if (this.activeIndex >= 0) {
+        if (isSuggestionsActive && this.activeIndex >= 0) {
           const selectedItem = this.currentMatches[this.activeIndex];
           this.selectSuggestion(selectedItem);
+        } else {
+          // Pressing Enter filters cards and scrolls down to results
+          const query = this.searchInput.value;
+          this.filterHomepageCards(query);
+          this.suggestionsBox.classList.remove('active');
+          this.searchInput.blur();
+          
+          const destsSection = document.getElementById('destinations');
+          if (destsSection) {
+            const headerOffset = 95;
+            const elementPosition = destsSection.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
         }
       } 
       else if (e.key === 'Escape') {
@@ -112,13 +130,36 @@ class SearchEngine {
       }
     });
 
-    // Close suggestions box on click outside
+    // Bulletproof click-away safety detection (using contains for child node clicks)
     document.addEventListener('click', (e) => {
-      if (e.target !== this.searchInput && e.target !== this.suggestionsBox) {
+      const isClickInside = this.searchInput.contains(e.target) || this.suggestionsBox.contains(e.target);
+      if (!isClickInside) {
         this.suggestionsBox.classList.remove('active');
         this.activeIndex = -1;
       }
     });
+
+    // Make the Search Glass Icon clickable to submit searches
+    const searchIcon = this.searchInput.previousElementSibling;
+    if (searchIcon) {
+      searchIcon.style.cursor = 'pointer';
+      searchIcon.addEventListener('click', () => {
+        const query = this.searchInput.value;
+        this.filterHomepageCards(query);
+        this.suggestionsBox.classList.remove('active');
+        
+        const destsSection = document.getElementById('destinations');
+        if (destsSection) {
+          const headerOffset = 95;
+          const elementPosition = destsSection.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    }
 
     // Focus input to reopen suggestions if query is active
     this.searchInput.addEventListener('focus', () => {
@@ -228,6 +269,44 @@ class SearchEngine {
         }, 2500);
       }
     }, 800);
+  }
+
+  filterHomepageCards(query) {
+    const cards = document.querySelectorAll('.dest-card');
+    if (cards.length === 0) return; // Not on home page or no cards
+
+    const normalizedQuery = query.trim().toLowerCase();
+
+    cards.forEach(card => {
+      if (normalizedQuery === "") {
+        // If empty query, restore grid visibility
+        card.style.display = "";
+        card.style.opacity = "";
+        card.style.transform = "";
+        return;
+      }
+
+      const title = card.querySelector('.dest-title')?.textContent.toLowerCase() || "";
+      const loc = card.querySelector('.dest-location')?.textContent.toLowerCase() || "";
+      const desc = card.querySelector('.dest-desc')?.textContent.toLowerCase() || "";
+      
+      // Match card attributes against input query
+      let isMatch = title.includes(normalizedQuery) || loc.includes(normalizedQuery) || desc.includes(normalizedQuery);
+      
+      // Special mappings support for VTR
+      if (normalizedQuery === "vtr" && (title.includes("valmiki") || loc.includes("champaran") || loc.includes("vtr"))) {
+        isMatch = true;
+      }
+
+      if (isMatch) {
+        card.style.display = "";
+        card.style.opacity = "1";
+        card.style.transform = "scale(1)";
+        card.style.transition = "all 0.4s ease";
+      } else {
+        card.style.display = "none";
+      }
+    });
   }
 }
 
