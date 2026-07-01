@@ -112,7 +112,7 @@ class TourismMap {
           
           <div style="display:flex; gap:10px; border-top:1px solid var(--glass-border); padding-top:15px;">
             <button class="btn btn-primary book-cta" data-destination="${dest.id}" style="padding: 0.6rem 1.2rem; font-size:0.85rem; flex:1;">Book Eco Tour</button>
-            <a href="#destinations" class="btn btn-secondary" onclick="document.getElementById('destinations').scrollIntoView({behavior:'smooth'})" style="padding: 0.6rem 1.2rem; font-size:0.85rem; flex:1; text-align:center;">Read Guide</a>
+            <a href="destination-detail.html?id=${dest.id}" class="btn btn-secondary" style="padding: 0.6rem 1.2rem; font-size:0.85rem; flex:1; text-align:center;">Read Guide</a>
           </div>
         </div>
       </div>
