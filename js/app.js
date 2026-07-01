@@ -15,8 +15,8 @@ function initTheme() {
   const themeToggle = document.getElementById('theme-toggle');
   if (!themeToggle) return;
 
-  // Retrieve saved theme preference, defaulting to dark mode for cinematic feel
-  const currentTheme = localStorage.getItem('theme') || 'dark';
+  // Retrieve saved theme preference, defaulting to light mode as requested
+  const currentTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', currentTheme);
   updateThemeIcon(currentTheme);
 
