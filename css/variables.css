@@ -36,6 +36,7 @@
   --text-primary: #122415;
   --text-secondary: #4a5c4d;
   --text-light: #7e9182;
+  --input-border: rgba(18, 36, 21, 0.18);
   
   /* Primary HSL Palettes */
   --primary-h: 125;
@@ -72,6 +73,7 @@
   --text-primary: #f0f7f1;
   --text-secondary: #b2c9b6;
   --text-light: #7da083;
+  --input-border: rgba(255, 255, 255, 0.18);
   
   --primary-l: 45%; /* Lighter Forest Green to stand out on dark bg */
   

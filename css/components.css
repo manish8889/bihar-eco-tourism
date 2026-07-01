@@ -1117,7 +1117,7 @@
   width: 100%;
   padding: 12px 18px;
   border-radius: var(--radius-md);
-  border: 1px solid var(--glass-border);
+  border: 1.5px solid var(--input-border);
   background: var(--bg-secondary);
   color: var(--text-primary);
   font-family: var(--font-body);
@@ -1127,6 +1127,7 @@
 .booking-input:focus, .booking-select:focus {
   outline: none;
   border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(27, 94, 32, 0.12);
 }
 
 .booking-grid-select {
@@ -1136,15 +1137,20 @@
 }
 
 .booking-card-option {
-  border: 2px solid var(--glass-border);
+  border: 1.5px solid var(--input-border);
   border-radius: var(--radius-md);
   padding: 15px;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
+.booking-card-option:hover {
+  border-color: var(--primary-light);
+}
+
 .booking-card-option.selected {
   border-color: var(--primary);
+  border-width: 2px;
   background: rgba(76, 175, 80, 0.08);
 }
 
@@ -1152,8 +1158,16 @@
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
-  border-top: 1px solid var(--glass-border);
+  border-top: 1.5px solid var(--input-border);
   padding-top: 20px;
+}
+
+.booking-footer .btn-secondary {
+  border: 1.5px solid var(--input-border) !important;
+}
+
+.booking-footer .btn-secondary:hover {
+  border-color: var(--primary) !important;
 }
 
 /* E-Ticket generator */
