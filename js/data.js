@@ -15,7 +15,12 @@ const EcoData = {
         entryFee: "₹150 (Indians) / ₹1000 (Foreigners)"
       },
       adventureTags: ["Jungle Safari", "Rafting", "Bird Watching", "Eco-Trekking"],
-      coordinates: { x: 120, y: 80 } // for custom SVG map relative position
+      coordinates: { x: 120, y: 80 }, // for custom SVG map relative position
+      howToReach: {
+        air: "Gorakhpur Airport (125 km) in UP or Jay Prakash Narayan Airport in Patna (275 km).",
+        rail: "Bagaha Station (BUG) is 30 km away; Valmiki Nagar Road station (VNK) connects to Patna and Gorakhpur.",
+        road: "Well-connected by NH-727. State buses and taxi rentals are available from Bettiah (80 km) and Gorakhpur (125 km)."
+      }
     },
     {
       id: "rajgir",
@@ -32,7 +37,12 @@ const EcoData = {
         entryFee: "₹250 per person"
       },
       adventureTags: ["Glass Skywalk", "Zip-lining", "Jungle Safari", "Sky Cycling"],
-      coordinates: { x: 340, y: 350 }
+      coordinates: { x: 340, y: 350 },
+      howToReach: {
+        air: "Patna Airport (100 km) or Gaya International Airport (80 km).",
+        rail: "Rajgir Railway Station (RGD) connects directly to Patna and New Delhi.",
+        road: "Four-lane highways link Rajgir to Patna (100 km), Nalanda (15 km), and Gaya (75 km). State transport runs regularly."
+      }
     },
     {
       id: "kakolat",
@@ -49,7 +59,12 @@ const EcoData = {
         entryFee: "₹20 per person"
       },
       adventureTags: ["Waterfall Bathing", "Nature Photography", "Hill Trekking"],
-      coordinates: { x: 380, y: 390 }
+      coordinates: { x: 380, y: 390 },
+      howToReach: {
+        air: "Jay Prakash Narayan Airport, Patna (125 km) or Gaya Airport (110 km).",
+        rail: "Nawada Railway Station (NWD) is 30 km away, connected to Gaya, Patna, and Kiul junctions.",
+        road: "Located off NH-31 (Ranchi-Patna Highway), 30 km from Nawada city. Local taxis and auto-rickshaws operate from Nawada."
+      }
     },
     {
       id: "bhimbandh",
@@ -66,7 +81,12 @@ const EcoData = {
         entryFee: "₹50 per person"
       },
       adventureTags: ["Hot Springs", "Caving", "Forest Walking", "Birding"],
-      coordinates: { x: 490, y: 340 }
+      coordinates: { x: 490, y: 340 },
+      howToReach: {
+        air: "Jay Prakash Narayan Airport, Patna (160 km).",
+        rail: "Jamui Railway Station (20 km) or Munger Junction (55 km) on the main Eastern Railway line.",
+        road: "Reachable via Munger (55 km) or Jamui (20 km). Cabs and local autos ply regular motorable forest routes."
+      }
     },
     {
       id: "vikramshila",
@@ -83,7 +103,12 @@ const EcoData = {
         entryFee: "₹100 (Boat Charter extra)"
       },
       adventureTags: ["Dolphin Safari", "River Boating", "Sunset Cruise", "Bird Spotting"],
-      coordinates: { x: 560, y: 320 }
+      coordinates: { x: 560, y: 320 },
+      howToReach: {
+        air: "Bagdogra Airport, West Bengal (200 km) or Patna Airport (235 km).",
+        rail: "Bhagalpur Junction (BGP) is the closest major railhead, well-connected to Patna, Kolkata, and Delhi.",
+        road: "Accessed via NH-80. Regular private and state-run bus lines operate from Patna (230 km) and Munger (65 km)."
+      }
     },
     {
       id: "kaimur",
@@ -100,7 +125,12 @@ const EcoData = {
         entryFee: "₹50 per person"
       },
       adventureTags: ["Gorge Trekking", "Ancient Cave Tours", "Camping", "Waterfall Treks"],
-      coordinates: { x: 100, y: 410 }
+      coordinates: { x: 100, y: 410 },
+      howToReach: {
+        air: "Lal Bahadur Shastri International Airport in Varanasi (100 km) or Patna Airport (200 km).",
+        rail: "Bhabua Road Station (BBU) is 40 km away, connected to the Howrah-Gaya-Mughalsarai grand chord.",
+        road: "Accessible from Bhabua city (30 km) and Varanasi (95 km) via motorable ghat roads. Cabs are recommended."
+      }
     },
     {
       id: "pant",
@@ -117,7 +147,12 @@ const EcoData = {
         entryFee: "₹30 per person"
       },
       adventureTags: ["Medicinal Plant Tours", "Historical Hikes", "Eco-walks"],
-      coordinates: { x: 320, y: 370 }
+      coordinates: { x: 320, y: 370 },
+      howToReach: {
+        air: "Patna Airport (100 km).",
+        rail: "Rajgir Railway Station (RGD) is 3 km away, which links to Patna, Bihar Sharif, and New Delhi.",
+        road: "Direct road access from Nalanda (12 km), Patna (98 km), and Gaya (70 km). Local e-rickshaws and cabs are abundant."
+      }
     },
     {
       id: "gautam_buddha",
@@ -134,7 +169,12 @@ const EcoData = {
         entryFee: "₹50 per person"
       },
       adventureTags: ["Forest Safaris", "Spiritual Walks", "Night Camping"],
-      coordinates: { x: 260, y: 440 }
+      coordinates: { x: 260, y: 440 },
+      howToReach: {
+        air: "Gaya Airport (25 km) or Jay Prakash Narayan Airport in Patna (120 km).",
+        rail: "Gaya Junction (GAYA) is 20 km away, a major station on the grand chord railway line.",
+        road: "Located close to NH-2 (Grand Trunk Road). Continuous taxi and auto services operate from Gaya and Bodh Gaya."
+      }
     }
   ],
 

@@ -98,7 +98,55 @@ function loadDestinationDetail() {
     });
   }
 
-  // 6. Populate Local Eco Stays (Filtered by matching location coordinates/terms)
+  // 6. Populate How to Reach Facility
+  const reachGrid = document.getElementById('detail-reach-grid');
+  if (reachGrid && dest.howToReach) {
+    reachGrid.innerHTML = `
+      <div class="glass-panel" style="display:flex; align-items:flex-start; gap:15px; padding:15px; border-radius:var(--radius-md);">
+        <div style="background:var(--bg-tertiary); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.38 3.46L16 17l-4-4-4-4z"></path>
+            <line x1="21" y1="3" x2="12" y2="12"></line>
+          </svg>
+        </div>
+        <div>
+          <strong style="font-size:0.95rem; font-family:var(--font-headings); display:block; margin-bottom:3px; color:var(--text-primary);">By Air</strong>
+          <p style="font-size:0.9rem; line-height:1.4; color:var(--text-secondary);">${dest.howToReach.air}</p>
+        </div>
+      </div>
+
+      <div class="glass-panel" style="display:flex; align-items:flex-start; gap:15px; padding:15px; border-radius:var(--radius-md);">
+        <div style="background:var(--bg-tertiary); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12" y2="18"></line>
+            <line x1="8" y1="6" x2="16" y2="6"></line>
+            <line x1="8" y1="10" x2="16" y2="10"></line>
+          </svg>
+        </div>
+        <div>
+          <strong style="font-size:0.95rem; font-family:var(--font-headings); display:block; margin-bottom:3px; color:var(--text-primary);">By Train</strong>
+          <p style="font-size:0.9rem; line-height:1.4; color:var(--text-secondary);">${dest.howToReach.rail}</p>
+        </div>
+      </div>
+
+      <div class="glass-panel" style="display:flex; align-items:flex-start; gap:15px; padding:15px; border-radius:var(--radius-md);">
+        <div style="background:var(--bg-tertiary); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1 .4-1 1v7h2"></path>
+            <circle cx="7.5" cy="17.5" r="2.5"></circle>
+            <circle cx="16.5" cy="17.5" r="2.5"></circle>
+          </svg>
+        </div>
+        <div>
+          <strong style="font-size:0.95rem; font-family:var(--font-headings); display:block; margin-bottom:3px; color:var(--text-primary);">By Road</strong>
+          <p style="font-size:0.9rem; line-height:1.4; color:var(--text-secondary);">${dest.howToReach.road}</p>
+        </div>
+      </div>
+    `;
+  }
+
+  // 7. Populate Local Eco Stays (Filtered by matching location coordinates/terms)
   const staysGrid = document.getElementById('detail-stays-grid');
   if (staysGrid) {
     staysGrid.innerHTML = '';
