@@ -1,11 +1,13 @@
-/* AI-Powered Smart Autocomplete Search Engine */
+/* Advanced Autocomplete Search Engine with Visuals & Keyboard Navigation */
 
 class SearchEngine {
   constructor() {
     this.searchInput = document.getElementById('search-input');
     this.suggestionsBox = document.getElementById('search-suggestions');
     this.searchIndex = [];
-    
+    this.activeIndex = -1;
+    this.currentMatches = [];
+
     if (!this.searchInput || !this.suggestionsBox) return;
 
     this.buildIndex();
@@ -23,6 +25,7 @@ class SearchEngine {
         type: "Destination",
         targetId: `dest-card-${dest.id}`,
         anchor: "destinations",
+        image: dest.image,
         keywords: [dest.name, dest.location, ...dest.adventureTags, "waterfall", "sanctuary", "forest"]
       });
     });
@@ -35,6 +38,7 @@ class SearchEngine {
         type: "Resort",
         targetId: `stay-card-${stay.id}`,
         anchor: "stays",
+        image: stay.image,
         keywords: [stay.name, stay.category, stay.location, "hotel", "cottage", "camp", "lodge"]
       });
     });
@@ -47,18 +51,19 @@ class SearchEngine {
         type: "Wildlife",
         targetId: `wildlife-card-${wild.id}`,
         anchor: "wildlife",
+        image: wild.image,
         keywords: [wild.name, wild.scientific, "animal", "bird", "mammal", "species"]
       });
     });
 
     // Index general activities
     const activities = [
-      { name: "Safari", keywords: ["jeep safari", "lion safari", "open tiger safari", "zoo"] },
-      { name: "Bird Watching", keywords: ["birds", "wetlands", "photography", "guided birding"] },
-      { name: "Nature Walk", keywords: ["trekking", "hiking", "forest path", "botany"] },
-      { name: "Glass Bridge Skywalk", keywords: ["glass bridge", "rajgir skywalk", "suspension bridge"] },
-      { name: "Hot Springs", keywords: ["bhimbandh springs", "warm waters", "medicinal pool"] },
-      { name: "Dolphin Sightseeing", keywords: ["river cruise", "gangetic susus", "boating bhagalpur"] }
+      { name: "Safari", image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=150", keywords: ["jeep safari", "lion safari", "open tiger safari", "zoo"] },
+      { name: "Bird Watching", image: "https://images.unsplash.com/photo-1591821096437-40f75612d5d7?auto=format&fit=crop&q=80&w=150", keywords: ["birds", "wetlands", "photography", "guided birding"] },
+      { name: "Nature Walk", image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=150", keywords: ["trekking", "hiking", "forest path", "botany"] },
+      { name: "Glass Bridge Skywalk", image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=150", keywords: ["glass bridge", "rajgir skywalk", "suspension bridge"] },
+      { name: "Hot Springs", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=150", keywords: ["bhimbandh springs", "warm waters", "medicinal pool"] },
+      { name: "Dolphin Sightseeing", image: "https://images.unsplash.com/photo-1570473541596-23797500c501?auto=format&fit=crop&q=80&w=150", keywords: ["river cruise", "gangetic susus", "boating bhagalpur"] }
     ];
 
     activities.forEach(act => {
@@ -68,6 +73,7 @@ class SearchEngine {
         type: "Adventure",
         targetId: "adventure",
         anchor: "adventure",
+        image: act.image,
         keywords: [act.name, ...act.keywords]
       });
     });
@@ -79,10 +85,38 @@ class SearchEngine {
       this.renderSuggestions(val);
     });
 
+    // Keyboard navigation (Arrow keys + Enter + Esc)
+    this.searchInput.addEventListener('keydown', (e) => {
+      if (!this.suggestionsBox.classList.contains('active') || this.currentMatches.length === 0) return;
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        this.activeIndex = (this.activeIndex + 1) % this.currentMatches.length;
+        this.updateActiveSuggestion();
+      } 
+      else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        this.activeIndex = (this.activeIndex - 1 + this.currentMatches.length) % this.currentMatches.length;
+        this.updateActiveSuggestion();
+      } 
+      else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (this.activeIndex >= 0) {
+          const selectedItem = this.currentMatches[this.activeIndex];
+          this.selectSuggestion(selectedItem);
+        }
+      } 
+      else if (e.key === 'Escape') {
+        this.suggestionsBox.classList.remove('active');
+        this.activeIndex = -1;
+      }
+    });
+
     // Close suggestions box on click outside
     document.addEventListener('click', (e) => {
       if (e.target !== this.searchInput && e.target !== this.suggestionsBox) {
         this.suggestionsBox.classList.remove('active');
+        this.activeIndex = -1;
       }
     });
 
@@ -94,49 +128,73 @@ class SearchEngine {
   }
 
   renderSuggestions(query) {
+    this.activeIndex = -1; // Reset active keyboard selection pointer
+    
     if (query.length === 0) {
       this.suggestionsBox.classList.remove('active');
       this.suggestionsBox.innerHTML = '';
+      this.currentMatches = [];
       return;
     }
 
-    const matches = this.searchIndex.filter(item => {
+    this.currentMatches = this.searchIndex.filter(item => {
       return item.title.toLowerCase().includes(query) || 
              item.subtitle.toLowerCase().includes(query) ||
              item.keywords.some(kw => kw.toLowerCase().includes(query));
     }).slice(0, 6); // Cap matches at 6
 
-    if (matches.length === 0) {
+    if (this.currentMatches.length === 0) {
       this.suggestionsBox.innerHTML = `
         <div style="padding:15px; color:var(--text-light); text-align:center; font-size:0.9rem;">
           No matching eco-destinations found.
         </div>
       `;
     } else {
-      this.suggestionsBox.innerHTML = matches.map(match => `
-        <div class="suggestion-item" data-target="${match.targetId}" data-anchor="${match.anchor}">
-          <div>
-            <div style="font-weight:600; color:var(--text-primary); font-size:0.95rem;">${match.title}</div>
+      this.suggestionsBox.innerHTML = this.currentMatches.map((match, index) => `
+        <div class="suggestion-item" data-index="${index}" style="display:flex; align-items:center; gap:12px; padding:10px 15px; cursor:pointer; border-bottom:1px solid var(--bg-tertiary); transition: background var(--transition-fast);">
+          <img src="${match.image}" alt="" style="width:40px; height:40px; border-radius:6px; object-fit:cover; flex-shrink:0; background:var(--bg-tertiary);">
+          <div style="flex:1;">
+            <div style="font-weight:600; color:var(--text-primary); font-size:0.95rem; line-height:1.2;">${match.title}</div>
             <div style="font-size:0.8rem; color:var(--text-light);">${match.subtitle}</div>
           </div>
-          <span class="suggestion-type">${match.type}</span>
+          <span class="suggestion-type" style="font-size:0.7rem; text-transform:uppercase; background:var(--primary); color:#ffffff; padding:2px 8px; border-radius:4px; font-weight:600; letter-spacing:0.5px; flex-shrink:0;">${match.type}</span>
         </div>
       `).join('');
 
       // Add click listeners to items
       this.suggestionsBox.querySelectorAll('.suggestion-item').forEach(item => {
         item.addEventListener('click', () => {
-          const targetId = item.dataset.target;
-          const anchor = item.dataset.anchor;
-          
-          this.navigateToItem(anchor, targetId);
-          this.suggestionsBox.classList.remove('active');
-          this.searchInput.value = '';
+          const index = parseInt(item.dataset.index, 10);
+          this.selectSuggestion(this.currentMatches[index]);
         });
       });
     }
 
     this.suggestionsBox.classList.add('active');
+  }
+
+  updateActiveSuggestion() {
+    const items = this.suggestionsBox.querySelectorAll('.suggestion-item');
+    items.forEach((item, index) => {
+      if (index === this.activeIndex) {
+        item.classList.add('focused');
+        item.style.backgroundColor = 'rgba(76, 175, 80, 0.12)'; // Leaf green tint
+        item.style.outline = '1px solid var(--primary)';
+        // Scroll item into view inside the dropdown container if needed
+        item.scrollIntoView({ block: 'nearest' });
+      } else {
+        item.classList.remove('focused');
+        item.style.backgroundColor = '';
+        item.style.outline = 'none';
+      }
+    });
+  }
+
+  selectSuggestion(match) {
+    this.navigateToItem(match.anchor, match.targetId);
+    this.suggestionsBox.classList.remove('active');
+    this.searchInput.value = '';
+    this.activeIndex = -1;
   }
 
   navigateToItem(anchorId, targetId) {
@@ -152,6 +210,7 @@ class SearchEngine {
       if (cardEl) {
         cardEl.style.outline = "3px solid var(--accent)";
         cardEl.style.boxShadow = "0 0 25px var(--accent)";
+        cardEl.style.transition = "all 0.4s ease";
         
         // Remove highlight after 2.5s
         setTimeout(() => {
