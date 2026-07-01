@@ -29,12 +29,16 @@ class BookingWizard {
           window.open('https://rajgirsafari.bihar.gov.in/', '_blank');
           return;
         }
-        if (destId === 'valmiki') {
+        
+        const vtrSpots = ['valmiki', 'someshwar_peak', 'bhikhna_thori', 'manguraha_trail', 'kauleshwar_jhula', 'bheriyari_grassland'];
+        if (vtrSpots.includes(destId)) {
           e.preventDefault();
           window.open('https://www.valmikitigerreserve.com', '_blank');
           return;
         }
-        if (destId === 'kaimur') {
+
+        const kaimurSpots = ['kaimur', 'telhar_kund', 'karkatgarh', 'karamchat', 'mundeshwari_park', 'jagdahwa_dam', 'adhaura_hills'];
+        if (kaimurSpots.includes(destId)) {
           e.preventDefault();
           const helplinesEl = document.getElementById('helplines');
           if (helplinesEl) {
@@ -46,7 +50,7 @@ class BookingWizard {
               behavior: 'smooth'
             });
           } else {
-            window.location.href = "destination-detail.html?id=kaimur#helplines";
+            window.location.href = `destination-detail.html?id=${destId}#helplines`;
           }
           return;
         }

@@ -446,7 +446,7 @@ const EcoData = {
       coordinates: { x: 90, y: 440 },
       howToReach: {
         air: "Varanasi Airport (194 km) or Patna Airport (280 km).",
-        rail: "Bhabua Road Station (BBU) is 93 km away via hill roads."
+        rail: "Bhabua Road Station (BBU) is 93 km away via hill roads.",
         road: "Drive 77 km from Bhabua city up the winding Adhaura ghat highway. Cabs are recommended."
       },
       bookingNotice: "Currently, online booking is not available for Adhaura forest area. Contact details:",
@@ -512,6 +512,16 @@ const EcoData = {
       price: 4500,
       image: "https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&q=80&w=800", // Cottage in woods
       amenities: ["AC Rooms", "Guided Safari", "River-view Dining", "Local Folk Shows", "Wi-Fi"]
+    },
+    {
+      id: "stay_kaimur_lodge",
+      name: "Kaimur Hills Forest Rest House",
+      category: "Forest Lodges",
+      location: "Bhabua, Kaimur",
+      rating: 4.6,
+      price: 2500,
+      image: "https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&q=80&w=800", // Lodge in Kaimur forest
+      amenities: ["AC Suites", "Nature Walks", "Ghat Views", "Local Food Kitchen", "24/7 Security"]
     },
     {
       id: "stay_rajgir_tree",
