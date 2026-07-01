@@ -202,27 +202,3 @@
   }
 }
 
-/* Infinite Marquee text ribbon */
-.marquee-wrapper {
-  overflow: hidden;
-  display: flex;
-  white-space: nowrap;
-  padding: var(--spacing-md) 0;
-  background: var(--primary);
-  color: #ffffff;
-}
-
-.marquee-content {
-  display: inline-flex;
-  animation: marqueeRun 25s linear infinite;
-  gap: 3rem;
-  font-family: var(--font-headings);
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-@keyframes marqueeRun {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
